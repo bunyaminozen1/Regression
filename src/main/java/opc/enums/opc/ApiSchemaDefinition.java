@@ -1,0 +1,35 @@
+package opc.enums.opc;
+
+public enum ApiSchemaDefinition {
+
+    KycEvent,
+    KybEvent,
+    ManagedAccountEvent,
+    LoginEvent,
+    EnrolmentEvent,
+    OutgoingWireTransferEventV3,
+    StepupEvent,
+    BeneficiariesBatchEvent,
+    ManagedAccountsDepositEvent,
+    TransferEvent,
+    SendEvent,
+    ManualTransactionEvent,
+    ManagedCardsSettlementEvent,
+    ChargeFeeEvent,
+    ManagedCardsAuthorisationEvent,
+    BeneficiaryVerifiedEvent,
+    AuthForwardingEvent,
+    CorporateDeactivatedEvent,
+    ConsumerDeactivatedEvent,
+    CorporateActivatedEvent,
+    ConsumerActivatedEvent,
+    PaymentRunEvent,
+    PaymentRunPaymentEvent,
+    BeneficiariesStateEvent,
+    LinkedAccountEvent,
+    BuyerActivatedEvent,
+    BuyerDeactivatedEvent,
+    AuthenticationFactorsEvent,
+    StepUpEvent,
+    SweepingEvent
+}

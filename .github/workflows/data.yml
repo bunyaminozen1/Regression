@@ -1,0 +1,31 @@
+name: Data
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  data:
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [ data ]
+        forkCount: [ 1 ]
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}
+      executionLocation: Sandbox
+      sandboxInnovator: 1991
+
+  product:
+    needs: data
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [ data ]
+        forkCount: [ 1 ]
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}
+      executionLocation: Sandbox
+      sandboxInnovator: 2032

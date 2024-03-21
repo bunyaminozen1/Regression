@@ -1,0 +1,82 @@
+[
+  {
+    "id": "64ef3aa81fe8021e9e7568d1",
+    "consentId": "64ef3a761fe8021e9e7568c6",
+    "institutionId": "modelo-sandbox",
+    "displayName": "xxxx0006",
+    "currency": "GBP",
+    "accountIdentification": {
+      "accountNumber": "70000006",
+      "sortCode": "700001"
+    },
+    "accountNames": [
+      "Mr. Roberto Rastapopoulos & Ivan Sakharine & mits"
+    ],
+    "type": "CREDIT_CARD",
+    "usageType": "BUSINESS"
+  },
+  {
+    "id": "64ef3aa81fe8021e9e7568d3",
+    "consentId": "64ef3a761fe8021e9e7568c6",
+    "institutionId": "modelo-sandbox",
+    "displayName": "xxxx0006",
+    "currency": "GBP",
+    "accountIdentification": {
+      "accountNumber": "70000002",
+      "sortCode": "700001"
+    },
+    "accountNames": [
+      "Mr. Roberto Rastapopoulos & Ivan Sakharine"
+    ],
+    "type": "CURRENT",
+    "usageType": "PERSONAL"
+  },
+  {
+    "id": "64ef3aa81fe8021e9e7568d5",
+    "consentId": "64ef3a761fe8021e9e7568c6",
+    "institutionId": "modelo-sandbox",
+    "displayName": "xxxx0005",
+    "currency": "GBP",
+    "accountIdentification": {
+      "accountNumber": "70000005",
+      "sortCode": "700001"
+    },
+    "accountNames": [
+      "Octon Inc"
+    ],
+    "type": "CURRENT",
+    "usageType": "BUSINESS"
+  },
+  {
+    "id": "64ef3aa81fe8021e9e7568d7",
+    "consentId": "64ef3a761fe8021e9e7568c6",
+    "institutionId": "modelo-sandbox",
+    "displayName": "xxxx0001",
+    "currency": "GBP",
+    "accountIdentification": {
+      "accountNumber": "70000001",
+      "sortCode": "700001"
+    },
+    "accountNames": [
+      "Mr. Roberto Rastapopoulos & Mr. Mitsuhirato"
+    ],
+    "type": "CURRENT",
+    "usageType": "PERSONAL"
+  },
+  {
+    "id": "64ef3aa81fe8021e9e7568d9",
+    "consentId": "64ef3a761fe8021e9e7568c6",
+    "institutionId": "modelo-sandbox",
+    "displayName": "xxxx0003",
+    "currency": "GBP",
+    "accountIdentification": {
+      "accountNumber": "70000001",
+      "sortCode": "700001"
+    },
+    "accountNames": [
+      "Mario Carpentry"
+    ],
+    "type": "CURRENT",
+    "usageType": "BUSINESS"
+  }
+]

@@ -1,0 +1,2600 @@
+swagger: '2.0'
+
+info:
+  title: Webhooks API
+  version: "1"
+
+paths:
+  /corporates/corporate_deactivated/watch:
+    post:
+      tags:
+        - Corporates
+      summary: Corporate deactivation
+      description: Notification that a corporate identity has been deactivated.
+      operationId: corporates_corporate_deactivated_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/CorporateDeactivatedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /corporates/corporate_activated/watch:
+    post:
+      tags:
+        - Corporates
+      summary: Corporate activation
+      description: Notification that a corporate identity has been activated.
+      operationId: corporates_corporate_activated_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/CorporateActivatedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /corporates/kyb/beneficiaries/watch:
+    post:
+      tags:
+        - Corporates
+      summary: Corporate beneficiary status update
+      description: Notification that the verification status of a corporate beneficiary has been updated.
+      operationId: corporates_kyb_beneficiaries_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/BeneficiaryVerifiedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /corporates/kyb/watch:
+    post:
+      tags:
+        - Corporates
+      summary: Corporate KYB status update
+      description: Notification that the KYB status of a corporate identity has been updated.
+      operationId: corporates_kyb_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/KybEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /consumers/consumer_activated/watch:
+    post:
+      tags:
+        - Consumers
+      summary: Consumer activation
+      description: Notification that a consumer identity has been activated.
+      operationId: consumers_consumer_activated_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ConsumerActivatedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /consumers/consumer_deactivated/watch:
+    post:
+      tags:
+        - Consumers
+      summary: Consumer deactivation
+      description: Notification that a consumer identity has been deactivated.
+      operationId: consumers_consumer_deactivated_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ConsumerDeactivatedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /consumers/kyc/watch:
+    post:
+      tags:
+        - Consumers
+      summary: Consumer KYC status update
+      description: Notification that the KYC status of a consumer identity has been updated.
+      operationId: consumers_kyc_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/KycEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /managed_accounts/deposits/watch:
+    post:
+      tags:
+        - Managed Accounts
+      summary: Account deposit
+      description: Notification that a deposit (incoming bank transfer) has been performed on a managed account.
+      operationId: managed_accounts_deposits_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ManagedAccountsDepositEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /managed_accounts/watch:
+    post:
+      tags:
+        - Managed Accounts
+      summary: Account update
+      description: Notification that the status of a managed account has been updated.
+      operationId: managed_accounts_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ManagedAccountEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /managed_cards/settlements/watch:
+    post:
+      tags:
+        - Managed Cards
+      summary: Card settlement
+      description: Notification that a card settlement has been processed on a managed card.
+      operationId: managed_cards_settlements_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ManagedCardsSettlementEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /managed_cards/adjustments/watch:
+    post:
+      tags:
+        - Managed Cards
+      summary: Card adjustment
+      description: Notification that a balance adjustment has been processed on a managed card.
+      operationId: managed_cards_adjustments_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ManagedCardsAdjustmentEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /managed_cards/authorisations/watch:
+    post:
+      tags:
+        - Managed Cards
+      summary: Card authorisation
+      description: Notification that a card authorisation attempt has been performed on a managed card. This is sent irrespective of the authorisation outcome - the `approved` field indicates whether the authorisation has been approved or denied.
+      operationId: managed_cards_authorisations_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ManagedCardsAuthorisationEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /transfers/watch:
+    post:
+      tags:
+        - Transfers
+      summary: Transfer transaction
+      description: Notification that a Transfer transaction has been processed.
+      operationId: transfers_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/TransferEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /send/watch:
+    post:
+      tags:
+        - Send
+      summary: Send transaction
+      description: Notification that a Send transaction has been processed.
+      operationId: send_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/SendEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /outgoing_wire_transfers/watch:
+    post:
+      tags:
+        - Outgoing Wire Transfers
+      summary: Outgoing Wire Transfer transaction
+      description: Notification that a Outgoing Wire Transfer has been processed.
+      operationId: outgoing_wire_transfers_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/OutgoingWireTransferEventV3'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /authentication_factors/watch:
+    post:
+      tags:
+        - Authentication Factors
+      summary: Enrolment status
+      description: Notification that an enrolment has been accepted or declined.
+      operationId: authentication_factors_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/EnrolmentEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /fees/watch:
+    post:
+      tags:
+        - Fees
+      summary: FeeWatch
+      description: Notification that a fee has been charged.
+      operationId: fees_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ChargeFeeEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /manual_transactions/watch:
+    post:
+      tags:
+        - Manual Transactions
+      summary: Manual transaction
+      description: Notification that a manual transaction has been processed.
+      operationId: manual_transactions_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/ManualTransactionEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /login/watch:
+    post:
+      tags:
+        - Login
+      summary: Login attempt
+      description: Notification that a user login attempt has been performed.
+      operationId: login_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/LoginEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /stepup/watch:
+    post:
+      tags:
+        - Stepup
+      summary: Step-up status
+      description: Notification that an step-up has been accepted or declined.
+      operationId: stepup_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/StepupEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /beneficiaries/batch/watch:
+    post:
+      tags:
+        - Beneficiaries
+      summary: Beneficiary batch
+      description: Notification that a Beneficiary batch has been submitted.
+      operationId: beneficiaries_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/BeneficiariesBatchEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /managed_cards_authorisation_forwarding:
+    post:
+      tags:
+        - Authforwarding
+      summary: Authorisation Forwarding
+      description: Receive purchase authorisation events and choose if to approve or decline them by replying to the event.
+      operationId: authforwarding
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/AuthorisationForwardingEvent'
+        required: true
+      responses:
+        '200':
+          description: Success
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+definitions:
+  CorporateDeactivatedEvent:
+    type: object
+    "required": [ "actionDoneBy", "emailAddress", "reasonCode" ]
+    "additionalProperties": false
+    properties:
+      actionDoneBy:
+        allOf:
+          - $ref: '#/definitions/ActionDoneBy0'
+      emailAddress:
+        type: string
+      reasonCode:
+        allOf:
+          - $ref: '#/definitions/ReasonCode0'
+  ActionDoneBy0:
+    type: string
+    enum:
+      - ADMIN
+      - INNOVATOR
+  ReasonCode0:
+    type: string
+    enum:
+      - ACCOUNT_REVIEW
+      - ACCOUNT_SECURITY
+      - TEMPORARY
+      - ACCOUNT_CLOSURE
+      - ACCOUNT_ABANDONED
+  DefaultError:
+    type: object
+    properties:
+      message:
+        maxLength: 255
+        type: string
+        description: When present helps to identify and fix the problem.
+    description: A default error model in case of errors other than 400, 409 or 504.
+  CorporateActivatedEvent:
+    type: object
+    "required": [ "actionDoneBy", "emailAddress" ]
+    "additionalProperties": false
+    properties:
+      actionDoneBy:
+        allOf:
+          - $ref: '#/definitions/ActionDoneBy0'
+      emailAddress:
+        type: string
+  BeneficiaryVerifiedEvent:
+    type: object
+    "required": [ "event", "eventDetails", "additionalInformation", "rejectionComment" ]
+    "additionalProperties": false
+    properties:
+      event:
+        type: array
+        description: The event that triggered this webhook notification. The event is structured to describe the parameter that has triggered the event followed by the action that occurred.
+        items:
+          $ref: '#/definitions/BeneficiaryEventType'
+      eventDetails:
+        type: array
+        description: A reason, if any, describing why this event has occurred.
+        items:
+          $ref: '#/definitions/FailureReason'
+      additionalInformation:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryVerifiedEventAdditionalInformation'
+          - description: Additional information related to the event triggering this notification.
+      rejectionComment:
+        type: string
+        description: Reason shown to the user in case of temporary rejection.
+  BeneficiaryEventType:
+    type: string
+    enum:
+      - STATUS_UPDATED
+      - BENEFICIARY_TYPE_UPDATED
+      - FIRST_NAME_UPDATED
+      - MIDDLE_NAME_UPDATED
+      - LAST_NAME_UPDATED
+      - EMAIL_UPDATED
+  FailureReason:
+    type: string
+    enum:
+      - DOCUMENTS_UNSATISFACTORY
+      - SUPPLIED_DATA_AND_DOCUMENTS_MISMATCH
+      - LANGUAGE_IN_DOCUMENTS_UNSUPPORTED
+      - SELFIE_UNSATISFACTORY
+      - SELFIE_AND_DOCUMENTS_MISMATCH
+      - CORPORATE_DETAILS_UNSATISFACTORY
+      - BENEFICIARY_DETAILS_UNSATISFACTORY
+      - REPRESENTATIVE_DETAILS_UNSATISFACTORY
+      - OTHER
+      - ROOT_USER_UNMATCHED_TO_DIRECTOR_OR_REPRESENTATIVE
+      - UNSUPPORTED_COUNTRY
+  BeneficiaryVerifiedEventAdditionalInformation:
+    type: object
+    properties:
+      corporateId:
+        type: string
+        description: The corporate id whose beneficiary has triggered this event.
+      corporateName:
+        type: string
+        description: The corporate name whose beneficiary has triggered this event.
+      rootUserEmail:
+        type: string
+        description: The corporate's root user email.
+      kybStatus:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: The status of the Full Company Verification Checks for the corporate entity.
+      beneficiary:
+        $ref: '#/definitions/BeneficiaryInfo'
+  KyiStatus:
+    type: string
+    enum:
+      - NOT_STARTED
+      - INITIATED
+      - PENDING_REVIEW
+      - APPROVED
+      - REJECTED
+  BeneficiaryInfo:
+    type: object
+    properties:
+      type:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryType'
+          - description: Type of the beneficiary.
+      firstName:
+        type: string
+        description: First name of the beneficiary.
+      middleName:
+        type: string
+        description: Middle name of the beneficiary.
+      lastName:
+        type: string
+        description: Last name of the beneficiary.
+      email:
+        type: string
+        description: Email of the beneficiary.
+      status:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: Effective KYB Status of the beneficiary.
+      ongoingKybStatus:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: Ongoing KYB Status of the beneficiary.
+  BeneficiaryType:
+    type: string
+    enum:
+      - UBO
+      - DIRECTOR
+      - UNKNOWN
+      - SHAREHOLDER
+      - PARTNER
+      - OTHER_DIRECTOR
+  KybEvent:
+    type: object
+    "required": [ "corporateId", "corporateEmail", "status", "details", "rejectionComment", "ongoingStatus" ]
+    "additionalProperties": false
+    properties:
+      corporateId:
+        type: string
+        description: Id of the corporate.
+      corporateEmail:
+        type: string
+        description: Email of the corporate.
+      status:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: Effective KYB status of the corporate.
+      details:
+        type: array
+        description: Action which my be required to re-process kyb in case of temporary rejections.
+        items:
+          $ref: '#/definitions/FailureReason'
+      rejectionComment:
+        type: string
+        description: Reason shown to the user in case of temporary rejection.
+      ongoingStatus:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: Ongoing KYB Status of the corporate.
+  ConsumerActivatedEvent:
+    type: object
+    "required": [ "actionDoneBy", "emailAddress" ]
+    "additionalProperties": false
+    properties:
+      actionDoneBy:
+        allOf:
+          - $ref: '#/definitions/ActionDoneBy1'
+      emailAddress:
+        type: string
+  ActionDoneBy1:
+    type: string
+    enum:
+      - ADMIN
+      - INNOVATOR
+  ConsumerDeactivatedEvent:
+    type: object
+    "required": [ "actionDoneBy", "emailAddress", "reasonCode" ]
+    "additionalProperties": false
+    properties:
+      actionDoneBy:
+        allOf:
+          - $ref: '#/definitions/ActionDoneBy1'
+      emailAddress:
+        type: string
+      reasonCode:
+        allOf:
+          - $ref: '#/definitions/ReasonCode1'
+  ReasonCode1:
+    type: string
+    enum:
+      - ACCOUNT_REVIEW
+      - ACCOUNT_SECURITY
+      - TEMPORARY
+      - ACCOUNT_CLOSURE
+      - ACCOUNT_ABANDONED
+  KycEvent:
+    type: object
+    "required": ["consumerId", "consumerEmail", "status", "details", "rejectionComment", "kycLevel", "ongoingStatus", "ongoingKycLevel", "eventTimestamp"]
+    "additionalProperties": false
+    properties:
+      consumerId:
+        type: string
+      consumerEmail:
+        type: string
+      status:
+        $ref: '#/definitions/KyiStatus'
+      details:
+        type: array
+        description: Action which my be required to re-process kyc in case of temporary rejections.
+        items:
+          $ref: '#/definitions/RejectionReason'
+      rejectionComment:
+        type: string
+        description: Reason shown to the user in case of temporary rejection.
+      kycLevel:
+        $ref: '#/definitions/KycLevel'
+      ongoingStatus:
+        $ref: '#/definitions/KyiStatus'
+      ongoingKycLevel:
+        $ref: '#/definitions/KycLevel'
+      eventTimestamp:
+        type: string
+  RejectionReason:
+    type: string
+    enum:
+      - DOCUMENTS_UNSATISFACTORY
+      - SUPPLIED_DATA_AND_DOCUMENTS_MISMATCH
+      - LANGUAGE_IN_DOCUMENTS_UNSUPPORTED
+      - SELFIE_UNSATISFACTORY
+      - SELFIE_AND_DOCUMENTS_MISMATCH
+      - OTHER
+      - UNSUPPORTED_COUNTRY
+      - PEP_STATUS
+      - REJECTED_DUPLICATE
+  KycLevel:
+    type: string
+    enum:
+      - KYC_LEVEL_1
+      - KYC_LEVEL_2
+  ManagedAccountsDepositEvent:
+    type: object
+    "required": [ "id", "owner", "transactionAmount", "transactionId", "transactionTimestamp" ]
+    "additionalProperties": false
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+          - description: The id of the managed account where a deposit has been performed.
+      transactionId:
+        type: string
+        description: The id of the transaction, for reference.
+      transactionAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The amount of the transaction.
+      transactionTimestamp:
+        type: string
+        description: The timestamp of the transaction, using epoch timestamp with millisecond precision.
+      emailAddress:
+        type: string
+        description: The email address of the user who effected the deposit.
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      senderName:
+        type: string
+      state:
+        $ref: '#/definitions/ManagedAccountsDepositEventDepositState'
+      senderIban:
+        type: string
+      transactionFee:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: Any fee amount taken with the deposit
+      senderReference:
+        type: string
+        description: The reference of the deposit sender
+  TypeId:
+    required:
+      - id
+      - type
+    type: object
+    properties:
+      type:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      id:
+        type: string
+  CurrencyAmount:
+    required:
+      - currency
+    type: object
+    properties:
+      currency:
+        maxLength: 3
+        minLength: 3
+        pattern: ^[A-Z]*$
+        type: string
+        description: The currency ISO-4217 code, i.e. a three letter uppercase code, such as GBP, EUR, USD.
+      amount:
+        type: string
+        description: The monetary amount, scaled to the lowest denomination of the currency. For example, an amount of 1000 for a EUR currency is actually 1000 Euro cents, i.e. EUR 10.00.
+    description: A message representing a monetary amount in a particular currency.
+  ManagedAccountsDepositEventDepositState:
+    type: string
+    enum:
+      - PENDING
+      - COMPLETED
+      - REJECTED
+  ManagedAccountEvent:
+    type: object
+    "required": [ "account", "publishedTimestamp", "type" ]
+    "additionalProperties": false
+    properties:
+      account:
+        allOf:
+          - $ref: '#/definitions/ManagedAccount'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      type:
+        allOf:
+          - $ref: '#/definitions/ManagedAccountEventType'
+  ManagedAccount:
+    type: object
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      profileId:
+        type: string
+      tag:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      friendlyName:
+        maxLength: 50
+        minLength: 1
+        type: string
+      active:
+        type: boolean
+      currency:
+        maxLength: 3
+        minLength: 3
+        pattern: ^[A-Z]*$
+        type: string
+      balances:
+        $ref: '#/definitions/ManagedInstrumentBalances'
+      state:
+        $ref: '#/definitions/InstrumentStateLegacy'
+      creationTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      bankAccountDetails:
+        allOf:
+          - $ref: '#/definitions/BankAccountDetails'
+          - description: The bank account details to be used when loading funds to this managed account.
+  ManagedInstrumentBalances:
+    type: object
+    properties:
+      availableBalance:
+        type: string
+      actualBalance:
+        type: string
+  InstrumentStateLegacy:
+    type: object
+    properties:
+      blockTypes:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+      destroyType:
+        type: string
+  BlockedDetailsType:
+    type: string
+    enum:
+      - VELOCITY
+      - USER
+      - ACCOUNT
+      - ADMIN
+      - NONE
+  BankAccountDetails:
+    type: object
+    properties:
+      beneficiary:
+        type: string
+      address:
+        type: string
+      beneficiaryBank:
+        type: string
+      bankIdentifierCode:
+        type: string
+      iban:
+        type: string
+      accountNumber:
+        type: string
+      sortCode:
+        type: string
+      paymentReference:
+        type: string
+        description: A reference required by the partner bank to execute a load on this managed account.
+  ManagedAccountEventType:
+    type: string
+    enum:
+      - CREATED
+      - UPDATED
+      - REQUESTED
+      - REJECTED
+      - BLOCKED
+      - UNBLOCKED
+      - DESTROYED
+  ManagedCardsSettlementEvent:
+    type: object
+    "required": [ "feeAmount", "id", "owner", "settlementType", "sourceAmount", "state", "transactionId", "transactionAmount", "transactionTimestamp" ]
+    "additionalProperties": false
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+          - description: The id of the managed card on which a settlement has been performed.
+      transactionId:
+        type: string
+        description: The id of the transaction, for reference.
+      settlementType:
+        allOf:
+          - $ref: '#/definitions/CardMerchantSettlementMerchantTransactionType'
+          - description: The type of settlement that was processed.
+      transactionAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The amount in the currency of the card.
+      transactionTimestamp:
+        type: string
+        description: The timestamp of the transaction, using epoch timestamp with millisecond precision.
+      sourceAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The amount in the currency of the merchant.
+      merchantName:
+        type: string
+        description: The name of the merchant where the authorisation has been made.
+      merchantCategoryCode:
+        type: string
+        description: The merchant category code.
+      merchantId:
+        type: string
+        description: The merchant ID.
+      details:
+        $ref: '#/definitions/ManagedCardModeDetails'
+      availableBalance:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The updated card available balance after this authorisation was processed.
+      relatedAuthorisationId:
+        type: string
+        description: The related authorisation id which this settlement is clearing.
+      relatedSettlementId:
+        type: string
+        description: The related settlement id.
+      relatedSettlementIds:
+        type: array
+        description: The related settlement ids.
+      relatedAuthorisationIds:
+        type: array
+        description: The related authorisation ids.
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      feeAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The settlement fee, in the currency of the card.
+      authCode:
+        maxLength: 6
+        minLength: 0
+        type: string
+        description: The authorisation code associated with this settlement.
+      state:
+        allOf:
+          - $ref: '#/definitions/ManagedCardsSettlementEventSettlementState'
+          - description: The state of the settlement.
+      forexFee:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The forex fee, if any, that has been included in the transactionAmount.
+      merchantCountryCode:
+        type: string
+        description: The merchant country code.
+  CardMerchantSettlementMerchantTransactionType:
+    type: string
+    enum:
+      - SALE_PURCHASE
+      - CASH_WITHDRAWAL
+      - SALE_WITH_CASHBACK
+      - MAIL_OR_TELEPHONE_ORDER
+      - PURCHASE_REFUND_REVERSAL
+      - ORIGINAL_CREDIT_TRANSACTION_REVERSAL
+      - CASH_WITHDRAWAL_REVERSAL
+      - PURCHASE_REFUND
+      - PURCHASE_REVERSAL
+      - ORIGINAL_CREDIT_TRANSACTION
+      - FIRST_CHARGEBACK
+      - FIRST_CHARGEBACK_REVERSAL
+      - FIRST_REPRESENTMENT
+      - FIRST_REPRESENTMENT_REVERSAL
+      - SECOND_CHARGEBACK
+      - SECOND_CHARGEBACK_REVERSAL
+      - SECOND_REPRESENTMENT
+      - ARBITRATION_CHARGEBACK
+      - BALANCE_INQUIRY
+  ManagedCardModeDetails:
+    type: object
+    properties:
+      prepaidModeDetails:
+        $ref: '#/definitions/PrepaidModeDetails'
+      debitModeDetails:
+        $ref: '#/definitions/DebitModeDetails'
+  PrepaidModeDetails:
+    type: object
+    properties:
+      availableBalance:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The updated card available balance after this authorisation was processed.
+  DebitModeDetails:
+    type: object
+    properties:
+      parentManagedAccountId:
+        type: string
+        description: Id of the managed account holding funds which the managed card can access, up to a configurable spend limit.
+      availableToSpend:
+        type: array
+        description: The amount of funds from the parent managed account that are available to be spent through the card, in a given time interval, after this transaction was performed.
+        items:
+          $ref: '#/definitions/AvailableToSpend'
+  AvailableToSpend:
+    type: object
+    properties:
+      availableAmount:
+        type: string
+        description: The amount and currency that is available to spend, (for the given interval).
+      interval:
+        $ref: '#/definitions/Interval'
+  Interval:
+    type: string
+    enum:
+      - ALWAYS
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+      - QUARTERLY
+      - YEARLY
+  ManagedCardsSettlementEventSettlementState:
+    type: string
+    enum:
+      - PENDING
+      - COMPLETED
+  ManagedCardsAdjustmentEvent:
+    type: object
+    "required": [ "adjustmentAmount", "adjustmentType", "id", "owner", "transactionId", "transactionTimestamp" ]
+    "additionalProperties": false
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+          - description: The id of the managed card on which a settlement has been performed.
+      transactionId:
+        type: string
+        description: The id of the transaction, for reference.
+      adjustmentType:
+        allOf:
+          - $ref: '#/definitions/CardAdjustmentDetailsAdjustmentType'
+          - description: The type of adjustment that was processed.
+      adjustmentAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The amount in the currency of the card.
+      transactionTimestamp:
+        type: string
+        description: The timestamp of the transaction, using epoch timestamp with millisecond precision.
+      availableBalance:
+        deprecated: true
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The updated card available balance after this adjustment was processed.
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      details:
+        $ref: '#/definitions/ManagedCardModeDetails'
+  CardAdjustmentDetailsAdjustmentType:
+    type: string
+    enum:
+      - DEFAULT_ADJUSTMENT
+      - LOST_STOLEN_REPLACEMENT_BALANCE_TRANSFER
+  ManagedCardsAuthorisationEvent:
+    type: object
+    "required": [ "authorisationType", "id", "merchantName", "owner", "sourceAmount", "transactionAmount", "transactionId", "transactionTimestamp" ]
+    "additionalProperties": false
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+          - description: The id of the managed card on which an authorisation has been performed.
+      transactionId:
+        type: string
+        description: The id of the transaction, for reference.
+      transactionAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The amount in the currency of the card.
+      transactionTimestamp:
+        type: string
+        description: The timestamp of the transaction, using epoch timestamp with millisecond precision.
+      sourceAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The amount in the currency of the merchant.
+      merchantName:
+        type: string
+        description: The name of the merchant where the authorisation has been made.
+      merchantCategoryCode:
+        type: string
+        description: The merchant category code.
+      merchantId:
+        type: string
+        description: The merchant ID.
+      approved:
+        type: boolean
+        description: Indicates whether the authorisation has been approved or denied.
+      availableBalance:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The updated card available balance after this authorisation was processed.
+      declineReason:
+        allOf:
+          - $ref: '#/definitions/AuthDeclineReason'
+          - description: An indication of why the authorisation was declined
+      authRuleFailedReason:
+        allOf:
+          - $ref: '#/definitions/AuthRuleChecksFailedReason'
+          - description: If the authorisation was declined due to auth rule checks, this indicates the auth rule that was violated.
+      authorisationType:
+        allOf:
+          - $ref: '#/definitions/CardAuthorisationDetailsAuthorisationType'
+          - description: The type of authorisation that was processed.
+      relatedAuthorisationId:
+        type: string
+        description: The related authorisation id which this authorisation is performing further updates on.
+      relatedAuthorisationIds:
+        type: array
+        description: The related authorisation ids which this authorisation is performing further updates on.
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      cardholderPresent:
+        allOf:
+          - $ref: '#/definitions/CardHolderPresent'
+          - description: Optional detail indicating if the card holder was present when the authorisation occurred.
+      cardPresent:
+        type: boolean
+        description: Optional detail indicating if the card was present when the authorisation occurred.
+      details:
+        $ref: '#/definitions/ManagedCardModeDetails'
+      authCode:
+        maxLength: 6
+        minLength: 1
+        type: string
+        description: The authorisation code associated with this authorisation.
+      forexPadding:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The forex padding amount, if any, that has been included in the transactionAmount.
+      forexFee:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: The forex fee, if any, that has been included in the transactionAmount.
+      authForwardingDetails:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingDetails'
+          - description: Contains information about the authorisations that have been forwarded.
+      merchantCountryCode:
+        type: string
+        description: The merchant country code.
+  AuthDeclineReason:
+    type: string
+    enum:
+      - PHYSICAL_NOT_ACTIVATED
+      - INSUFFICIENT_BALANCE
+      - CVV_CHECKS_FAILED
+      - CVV_RETRIES_EXCEEDED
+      - CARD_STATUS_NOT_ALLOWED
+      - PIN_CHECKS_FAILED
+      - PIN_RETRIES_EXCEEDED
+      - CARD_EXPIRY_CHECKS_FAILED
+      - AVS_CHECKS_FAILED
+      - ATM_WITHDRAWAL_LIMIT_EXCEEDED
+      - SCA_REQUIRED
+      - AUTH_RULE_CHECKS_FAILED
+      - TRANSACTION_NOT_PERMITTED
+      - TIMEOUT
+      - NO_REASON
+  AuthRuleChecksFailedReason:
+    type: string
+    enum:
+      - MERCHANT_CATEGORY_NOT_IN_ALLOWED_LIST
+      - MERCHANT_CATEGORY_BLOCKED
+      - MERCHANT_ID_NOT_IN_ALLOWED_LIST
+      - MERCHANT_ID_BLOCKED
+      - ATM_NOT_ALLOWED
+      - CONTACTLESS_NOT_ALLOWED
+      - ECOMMERCE_NOT_ALLOWED
+      - CASHBACK_NOT_ALLOWED
+      - CREDIT_AUTHORISATIONS_NOT_ALLOWED
+      - SPEND_LIMIT_EXCEEDED
+      - MERCHANT_COUNTRY_NOT_IN_ALLOWED_LIST
+      - MERCHANT_COUNTRY_BLOCKED
+      - MIN_TRANSACTION_AMOUNT_EXCEEDED
+      - MAX_TRANSACTION_AMOUNT_EXCEEDED
+      - AUTH_FORWARDING
+      - NONE
+  CardAuthorisationDetailsAuthorisationType:
+    type: string
+    enum:
+      - AUTHORISED
+      - DECLINED
+      - ONLINE_REVERSE
+      - EXPIRED
+      - MANUAL_CLOSE
+      - AUTHORISED_CREDIT
+      - CANCELLED
+  CardHolderPresent:
+    type: string
+    enum:
+      - PRESENT
+      - NOT_PRESENT
+      - PRESENCE_UNKNOWN
+  AuthForwardingDetails:
+    type: object
+    properties:
+      authForwardingTriggered:
+        type: boolean
+        description: Indicates whether the authorisation forwarding was triggered or not.
+      authForwardingDecisionOutcome:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingDefaultTimeoutDecision'
+          - description: The default timeout decision outcome that was processed.
+      authForwardingInnovatorTimedOut:
+        type: boolean
+        description: Indicates whether the authorisation forwarding was timed out while expecting a response from the Innovator’s system.
+  AuthForwardingDefaultTimeoutDecision:
+    type: string
+    enum:
+      - APPROVE
+      - DECLINE
+  TransferEvent:
+    type: object
+    "required": [ "eventType", "publishedTimestamp", "transfer" ]
+    "additionalProperties": false
+    properties:
+      eventType:
+        allOf:
+          - $ref: '#/definitions/TransferEventTransferEventType'
+      transfer:
+        allOf:
+          - $ref: '#/definitions/Transfer'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  TransferEventTransferEventType:
+    type: string
+    enum:
+      - PENDING
+      - COMPLETED
+      - FAILED
+  Transfer:
+    required:
+      - creationTimestamp
+      - destination
+      - destinationAmount
+      - id
+      - profileId
+      - source
+      - state
+    type: object
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      profileId:
+        type: string
+      tag:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      source:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      destination:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      destinationAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+      state:
+        allOf:
+          - $ref: '#/definitions/TransferState'
+      creationTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      conflict:
+        $ref: '#/definitions/CreateTransferConflictErrorCode'
+  TransferState:
+    type: string
+    enum:
+      - INITIALISED
+      - COMPLETED
+      - REJECTED
+      - FAILED
+      - PENDING
+  CreateTransferConflictErrorCode:
+    type: string
+    enum:
+      - NO_ERROR
+      - PROFILE_INACTIVE
+      - MODEL_CONSTRAINTS_VIOLATED
+      - DENIED_BY_INTERCEPTOR
+      - DENIED_BY_INSTRUMENT
+      - DENIED_BY_FOREX_TRADE
+      - CURRENCY_MISMATCH
+      - INSUFFICIENT_FUNDS
+      - SYSTEM_ERROR
+      - SOURCE_NOT_FOUND
+      - DESTINATION_NOT_FOUND
+      - FEE_NOT_CONFIGURED_FOR_CURRENCY
+      - DESTINATION_LIMIT_EXCEEDED
+      - TRANSFER_BETWEEN_INSTRUMENTS_UNSUPPORTED
+      - SOURCE_INSTRUMENT_BLOCKED
+      - DESTINATION_INSTRUMENT_BLOCKED
+      - INVALID_AMOUNT
+      - UNDEFINED
+  SendEvent:
+    type: object
+    "required": [ "eventType", "publishedTimestamp", "send" ]
+    "additionalProperties": false
+    properties:
+      eventType:
+        allOf:
+          - $ref: '#/definitions/SendEventSendEventType'
+      send:
+        allOf:
+          - $ref: '#/definitions/Send'
+      publishedTimestamp:
+        type: string
+  SendEventSendEventType:
+    type: string
+    enum:
+      - PENDING
+      - COMPLETED
+      - INVALID
+      - FAILED
+      - PENDING_CHALLENGE
+  Send:
+    required:
+      - creationTimestamp
+      - destination
+      - destinationAmount
+      - id
+      - profileId
+      - source
+      - state
+    type: object
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      profileId:
+        type: string
+      tag:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      source:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      destination:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      destinationAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+      state:
+        allOf:
+          - $ref: '#/definitions/SendState'
+      challengeExemptionReason:
+        allOf:
+          - $ref: '#/definitions/SendChallengeExemptionReason'
+      creationTimestamp:
+        type: string
+      conflict:
+        $ref: '#/definitions/CreateSendConflictErrorCode'
+  SendState:
+    type: string
+    enum:
+      - INITIALISED
+      - COMPLETED
+      - INVALID
+      - REJECTED
+      - FAILED
+      - PENDING
+  SendChallengeExemptionReason:
+    type: string
+    enum:
+      - LOW_VALUE
+      - TRUSTED_BENEFICIARY
+      - NO_EXEMPTION
+      - NOT_ENABLED
+  CreateSendConflictErrorCode:
+    type: string
+    enum:
+      - PROFILE_INACTIVE
+      - MODEL_CONSTRAINTS_VIOLATED
+      - DENIED_BY_INTERCEPTOR
+      - DENIED_BY_INSTRUMENT
+      - DENIED_BY_FOREX_TRADE
+      - CURRENCY_MISMATCH
+      - SOURCE_NOT_FOUND
+      - DESTINATION_NOT_FOUND
+      - FEE_NOT_CONFIGURED_FOR_CURRENCY
+      - DESTINATION_LIMIT_EXCEEDED
+      - SEND_TO_INSTRUMENT_UNSUPPORTED
+      - INSUFFICIENT_FUNDS
+      - SOURCE_INSTRUMENT_BLOCKED
+      - DESTINATION_INSTRUMENT_BLOCKED
+      - INVALID_AMOUNT
+      - IDENTITY_KYC_LEVEL_STEPUP_REQUIRED
+      - NO_ERROR
+  OutgoingWireTransferEventV3:
+    type: object
+    "required": [ "eventType", "publishedTimestamp", "transfer" ]
+    "additionalProperties": false
+    properties:
+      transfer:
+        allOf:
+          - $ref: '#/definitions/OutgoingWireTransferV3'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      eventType:
+        allOf:
+          - $ref: '#/definitions/OutgoingWireTransferEventV3EventType'
+  OutgoingWireTransferV3:
+    required:
+      - creationTimestamp
+      - destination
+      - id
+      - profileId
+      - source
+      - state
+      - transactionAmount
+      - type
+    type: object
+    properties:
+      id:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      profileId:
+        type: string
+      tag:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      source:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      transferAmount:
+        $ref: '#/definitions/CurrencyAmount'
+      description:
+        maxLength: 50
+        type: string
+      beneficiaryId:
+        type: string
+      type:
+        allOf:
+          - $ref: '#/definitions/OutgoingWireTransferType'
+      destination:
+        allOf:
+          - $ref: '#/definitions/Destination'
+      state:
+        allOf:
+          - $ref: '#/definitions/OutgoingWireTransferV3V3State'
+      creationTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      transactionAmount:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+      transactionFee:
+        allOf:
+          - $ref: '#/definitions/CurrencyAmount'
+          - description: Any fee amount taken with the OWT
+      challengeExemptionReason:
+        allOf:
+          - $ref: '#/definitions/OwtChallengeExemptionReason'
+  OwtChallengeExemptionReason:
+    type: string
+    enum:
+      - LOW_VALUE
+      - TRUSTED_BENEFICIARY
+      - NO_EXEMPTION
+  OutgoingWireTransferType:
+    type: string
+    enum:
+      - SEPA
+      - FASTER_PAYMENTS
+      - SWIFT
+  Destination:
+    required:
+      - beneficiaryName
+    type: object
+    properties:
+      beneficiaryName:
+        maxLength: 100
+        minLength: 1
+        type: string
+        description: The name of the beneficiary
+      beneficiaryAddress:
+        maxLength: 150
+        type: string
+        description: The beneficiary address
+      beneficiaryBankName:
+        maxLength: 150
+        type: string
+        description: The name of the beneficiary bank
+      beneficiaryBankAddress:
+        maxLength: 150
+        type: string
+        description: The beneficiary bank address
+      beneficiaryBankCountry:
+        maxLength: 3
+        minLength: 2
+        pattern: ^[A-Z*]+$
+        type: string
+        description: The beneficiary bank country - using ISO 3166 alpha-2
+      sepa:
+        $ref: '#/definitions/Sepa'
+      fasterPayments:
+        $ref: '#/definitions/FasterPayments'
+      swift:
+        $ref: '#/definitions/Swift'
+  Sepa:
+    required:
+      - bankIdentifierCode
+      - iban
+    type: object
+    properties:
+      iban:
+        type: string
+      bankIdentifierCode:
+        type: string
+  FasterPayments:
+    required:
+      - accountNumber
+      - sortCode
+    type: object
+    properties:
+      accountNumber:
+        type: string
+      sortCode:
+        type: string
+  Swift:
+    required:
+      - iban
+      - swift
+    type: object
+    properties:
+      iban:
+        type: string
+      swift:
+        type: string
+  OutgoingWireTransferV3V3State:
+    type: string
+    enum:
+      - PENDING_CHALLENGE
+      - INVALID
+      - SUBMITTED
+      - APPROVED
+      - REJECTED
+      - FAILED
+      - COMPLETED
+  OutgoingWireTransferEventV3EventType:
+    type: string
+    enum:
+      - PENDING_CHALLENGE
+      - INVALID
+      - SUBMITTED
+      - APPROVED
+      - REJECTED
+      - FAILED
+      - COMPLETED
+  EnrolmentEvent:
+    type: object
+    "required": [ "credentialId", "publishedTimestamp", "status", "type" ]
+    "additionalProperties": false
+    properties:
+      credentialId:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      type:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/EnrolmentEventEnrolmentStatus'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  EnrolmentEventEnrolmentStatus:
+    type: string
+    enum:
+      - ACTIVE
+      - INACTIVE
+  ChargeFeeEvent:
+    type: object
+    "required": [ "chargeFee", "publishedTimestamp", "type" ]
+    "additionalProperties": false
+    properties:
+      chargeFee:
+        allOf:
+          - $ref: '#/definitions/ChargeFee'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      type:
+        allOf:
+          - $ref: '#/definitions/ChargeFeeEventType'
+  ChargeFee:
+    required:
+      - feeSpec
+      - feeType
+      - id
+      - source
+    type: object
+    properties:
+      id:
+        type: string
+      feeType:
+        allOf:
+          - $ref: '#/definitions/FeeType'
+      feeSubType:
+        maxLength: 50
+        type: string
+        description: Optional sub fee type value (e.g. PRINTED_STATEMENT)
+      note:
+        type: string
+        description: Note added to the transaction and visible in the statements as an additional field
+      source:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      feeSpec:
+        allOf:
+          - $ref: '#/definitions/FeeSpec'
+      batch:
+        allOf:
+          - $ref: '#/definitions/TransactionBatch'
+          - description: The transaction batch if a transaction was executed for the charge
+      profileId:
+        type: string
+  FeeType:
+    type: string
+    enum:
+      - DEPOSIT
+      - WITHDRAWAL
+      - PURCHASE
+      - REFUND
+      - ATM_WITHDRAWAL
+      - CHARGEBACK
+      - TRANSFER
+      - SEND
+      - OWT
+      - CUSTOM
+      - OTHER
+  FeeSpec:
+    type: object
+    properties:
+      type:
+        $ref: '#/definitions/FeeSpecType'
+      flatAmount:
+        type: array
+        description: The flat fee amounts to be taken per currency. Required for FLAT, MAX, MIN and PLUS fee types.
+        items:
+          $ref: '#/definitions/CurrencyAmount'
+      percentage:
+        allOf:
+          - $ref: '#/definitions/ScaledAmount'
+          - description: The percentage amount to be taken as a fee. Required for PERCENTAGE, MAX, MIN and PLUS fee types.
+  FeeSpecType:
+    type: string
+    enum:
+      - FLAT
+      - PERCENTAGE
+      - PLUS
+      - MAX
+      - MIN
+  ScaledAmount:
+    type: object
+    properties:
+      value:
+        type: string
+      scale:
+        maximum: 127
+        exclusiveMaximum: false
+        minimum: -128
+        exclusiveMinimum: false
+        type: integer
+        format: int32
+    description: 'A floating point number, represented as a value and its scale. Its actual value can be obtained using the equation: value * pow(10, -scale).'
+  TransactionBatch:
+    required:
+      - id
+      - instrument
+      - state
+      - transaction
+    type: object
+    properties:
+      id:
+        type: string
+      transaction:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      relatedBatchId:
+        type: string
+      intercept:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionBatchIntercept'
+      instrument:
+        minProperties: 1
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/TransactionBatchInstrument'
+        description: The id of the map should be the instrument id
+      forexTrade:
+        type: array
+        items:
+          $ref: '#/definitions/TransactionBatchForexTrade'
+      completedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      state:
+        allOf:
+          - $ref: '#/definitions/TransactionBatchState'
+      conflict:
+        $ref: '#/definitions/TransactionBatchErrorType'
+      authSessionId:
+        type: string
+      note:
+        type: string
+  TransactionBatchIntercept:
+    required:
+      - provider
+    type: object
+    properties:
+      provider:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      state:
+        $ref: '#/definitions/TransactionBatchInterceptState'
+      denialReason:
+        maxLength: 50
+        type: string
+      suspendedReason:
+        maxLength: 255
+        type: string
+  TransactionBatchInterceptState:
+    type: string
+    enum:
+      - PENDING
+      - ALLOWED
+      - DENIED
+      - FAILED
+      - SUSPENDED
+  TransactionBatchInstrument:
+    required:
+      - id
+      - instrument
+      - instrumentId
+      - state
+    type: object
+    properties:
+      id:
+        type: string
+      instrumentId:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      instrument:
+        allOf:
+          - $ref: '#/definitions/InstrumentParticipant'
+      state:
+        allOf:
+          - $ref: '#/definitions/TransactionBatchParticipantState'
+      conflict:
+        $ref: '#/definitions/InstrumentParticipantErrorType'
+      after:
+        $ref: '#/definitions/InstrumentBalances'
+      executedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      remaining:
+        $ref: '#/definitions/TransactionBatchInstrumentRemaining'
+      afterCompensation:
+        $ref: '#/definitions/InstrumentBalances'
+      compensatedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      treasuryPending:
+        type: boolean
+  InstrumentParticipant:
+    required:
+      - channelProvider
+      - currency
+      - fiProvider
+      - owner
+    type: object
+    properties:
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      fiProvider:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      channelProvider:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      originalAmount:
+        $ref: '#/definitions/CurrencyAmount'
+      currency:
+        maxLength: 3
+        minLength: 3
+        pattern: ^[A-Z]*$
+        type: string
+      availableAdjustment:
+        type: string
+      reservedAdjustment:
+        type: string
+      pendingAdjustment:
+        type: string
+      availableSync:
+        type: string
+      deltaAdjustment:
+        type: string
+      limitAdjustment:
+        type: string
+      fee:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/Fee'
+      system:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int64
+      create:
+        type: boolean
+        description: If set, expects runtime_info to contain creation payload
+      upgrade:
+        type: boolean
+      activate:
+        type: boolean
+      blockType:
+        $ref: '#/definitions/BlockedDetailsType'
+      blockSubType:
+        $ref: '#/definitions/BlockedDetailsSubType'
+      unblockType:
+        $ref: '#/definitions/BlockedDetailsType'
+      unblockSubType:
+        $ref: '#/definitions/BlockedDetailsSubType'
+      destroyType:
+        $ref: '#/definitions/DestroyType'
+      replacementType:
+        $ref: '#/definitions/ReplacementType'
+      related:
+        type: boolean
+      forceState:
+        type: boolean
+        description: If set, force the action bypassing system blocks
+      forceBalance:
+        type: boolean
+        description: If set, force the action bypassing balance limits
+  Fee:
+    type: object
+    properties:
+      amount:
+        type: string
+      feeSpecificType:
+        type: string
+  BlockedDetailsSubType:
+    type: string
+    enum:
+      - FREEZE
+      - LOST
+      - SINGLE_SPEND
+      - PENDING_APPROVAL
+      - NO_SUB_TYPE
+  DestroyType:
+    type: string
+    enum:
+      - USER
+      - ADMIN
+      - SYSTEM
+      - LOST
+      - STOLEN
+      - SINGLE_SPEND
+      - ACCOUNT_REJECTED
+      - EXPIRED
+      - NONE
+  ReplacementType:
+    type: string
+    enum:
+      - DAMAGED
+      - LOST_STOLEN
+      - RENEW
+      - NO_REPLACEMENT_TYPE
+  TransactionBatchParticipantState:
+    type: string
+    enum:
+      - EXECUTION_PENDING
+      - EXECUTED
+      - COMMITTED
+      - REJECTED
+      - FAILED
+      - COMPENSATION_PENDING
+      - COMPENSATED
+      - OBSOLETE
+      - EXECUTION_SUSPENDED
+      - COMPENSATION_SUSPENDED
+  InstrumentParticipantErrorType:
+    type: string
+    enum:
+      - NO_INSTRUMENT_ERROR
+      - BALANCE_LIMIT_EXCEEDED
+      - INSTRUMENT_ALREADY_EXISTS
+      - INSTRUMENT_ALREADY_DESTROYED
+      - STATE_DOES_NOT_PERMIT_ACTION
+      - UNSUPPORTED_CURRENCY
+      - INSTRUMENT_ALREADY_RESTRICTED
+      - INSTRUMENT_ALREADY_ACTIVE
+      - INSTRUMENT_EXPIRED
+      - PROVIDER_REJECTED
+      - UNDEFINED_PARTICIPATION_TYPE
+  InstrumentBalances:
+    type: object
+    properties:
+      availableBalance:
+        type: string
+      reservedBalance:
+        type: string
+      deltaBalance:
+        type: string
+      pendingBalance:
+        type: string
+      limitBalance:
+        type: string
+  TransactionBatchInstrumentRemaining:
+    type: object
+    properties:
+      availableRemaining:
+        type: string
+      reservedRemaining:
+        type: string
+      pendingRemaining:
+        type: string
+      feeRemaining:
+        type: object
+        additionalProperties:
+          type: string
+  TransactionBatchForexTrade:
+    required:
+      - forexTrade
+      - id
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      forexTrade:
+        allOf:
+          - $ref: '#/definitions/ForexTradeParticipant'
+      state:
+        $ref: '#/definitions/TransactionBatchParticipantState'
+      conflict:
+        $ref: '#/definitions/ForexTradeParticipantErrorType'
+      executedTimestamp:
+        type: integer
+        description: Epoch timestamp using millisecond precision.
+        format: int64
+      compensatedRateId:
+        type: integer
+        format: int64
+      sourceSystemCompensation:
+        type: integer
+        description: The difference between the source and the actual compensation amount, may be positive (profit) or negative (loss)
+        format: int64
+      compensatedRate:
+        allOf:
+          - $ref: '#/definitions/ScaledAmount'
+          - description: The compensation forex rate between unscaled amount of given currencies
+      compensatedTimestamp:
+        type: integer
+        description: Epoch timestamp using millisecond precision.
+        format: int64
+  ForexTradeParticipant:
+    required:
+      - provider
+      - rate
+      - rateId
+      - sourceCurrency
+      - targetCurrency
+    type: object
+    properties:
+      rateId:
+        type: integer
+        format: int64
+      provider:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      sourceCurrency:
+        maxLength: 3
+        minLength: 3
+        pattern: ^[A-Z]*$
+        type: string
+      sourceAmount:
+        type: integer
+        format: int64
+      sourceSystem:
+        minimum: 0
+        exclusiveMinimum: false
+        type: integer
+        description: The rounding error when aggregating multiple conversions. Always positive
+        format: int64
+      targetCurrency:
+        maxLength: 3
+        minLength: 3
+        pattern: ^[A-Z]*$
+        type: string
+      targetAmount:
+        type: integer
+        format: int64
+      rate:
+        allOf:
+          - $ref: '#/definitions/ScaledAmount'
+          - description: The forex rate between unscaled amount of given currencies
+  ForexTradeParticipantErrorType:
+    type: string
+    enum:
+      - NO_FOREX_TRADE_ERROR
+      - RATE_EXPIRED
+  TransactionBatchState:
+    type: string
+    enum:
+      - EXECUTION_PENDING
+      - EXECUTED
+      - COMPLETED
+      - COMPENSATION_PENDING
+      - REJECTED
+      - FAILED
+      - EXECUTION_SUSPENDED
+      - COMPENSATION_SUSPENDED
+  TransactionBatchErrorType:
+    type: string
+    enum:
+      - REVERSAL_EXCEEDS_REMAINING
+      - DENIED_BY_INTERCEPTOR
+      - DENIED_BY_INSTRUMENT
+      - DENIED_BY_FOREX_TRADE
+      - FI_PROVIDER_TREASURY_UNSUPPORTED
+      - DENIED_BY_SUSPENSE
+      - NO_BATCH_ERROR
+  ChargeFeeEventType:
+    type: string
+    enum:
+      - COMPLETED
+  ManualTransactionEvent:
+    required:
+      - targetInstrument
+      - transactionId
+      - transactionTimestamp
+    type: object
+    properties:
+      transactionId:
+        type: string
+        description: Id of the transaction.
+      targetInstrument:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+          - description: Id of the instrument on which the manual operation was performed.
+      availableBalanceAdjustment:
+        type: string
+        description: The amount credited or debited on the available balance of the instrument.
+      actualBalanceAdjustment:
+        type: string
+        description: The amount credited or debited on the actual balance of the instrument.
+      transactionTimestamp:
+        type: string
+        description: The timestamp when the transaction was processed by the system, expressed in Epoch timestamp using millisecond precision.
+  LoginEvent:
+    type: object
+    "required": [ "credential", "publishedTimestamp", "status", "type" ]
+    "additionalProperties": false
+    properties:
+      credential:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      identity:
+        $ref: '#/definitions/TypeId'
+      type:
+        type: string
+        description: Login type can be with password or with auth/access token
+      status:
+        allOf:
+          - $ref: '#/definitions/LoginEventLoginEventStatus'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  LoginEventLoginEventStatus:
+    type: string
+    enum:
+      - VERIFIED
+      - DECLINED
+      - EXPIRED
+  StepupEvent:
+    type: object
+    "required": [ "challengeId", "credential", "publishedTimestamp", "status", "type" ]
+    "additionalProperties": false
+    properties:
+      credential:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      identity:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      challengeId:
+        type: string
+      type:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/StepupEventEventStatus'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      authToken:
+        type: string
+  StepupEventEventStatus:
+    type: string
+    enum:
+      - VERIFIED
+      - DECLINED
+      - EXPIRED
+  BeneficiariesBatchEvent:
+    type: object
+    "required": [ "id", "operation", "publishedTimestamp", "eventType", "beneficiaries" ]
+    "additionalProperties": false
+    properties:
+      id:
+        type: string
+      operation:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryOperation'
+      tag:
+        type: string
+      type:
+        type: string
+      eventType:
+        allOf:
+          - $ref: '#/definitions/BeneficiariesBatchEventType'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      beneficiaries:
+        type: array
+        items:
+          - $ref: '#/definitions/Beneficiaries'
+  BeneficiaryOperation:
+    type: string
+    enum:
+      - CREATE
+      - REMOVE
+  BeneficiariesBatchEventType:
+    type: string
+    enum:
+      - INITIALISED
+      - FAILED
+      - PENDING_CHALLENGE
+      - CHALLENGE_FAILED
+      - CHALLENGE_COMPLETED
+  Beneficiaries:
+    required:
+      - id
+      - group
+      - trustLevel
+      - beneficiaryInformation
+      - beneficiaryDetails
+      - state
+      - validationFailure
+    type: object
+    properties:
+      id:
+        type: string
+      group:
+        type: string
+      trustLevel:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryTrustLevel'
+      beneficiaryInformation:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryInformation'
+      beneficiaryDetails:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryDetails'
+      state:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryState'
+      validationFailure:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryValidationFailure'
+  BeneficiaryTrustLevel:
+    type: string
+    enum:
+      - TRUSTED
+  BeneficiaryInformation:
+    type: object
+    properties:
+      businessBeneficiaryType:
+        allOf:
+          - $ref: '#/definitions/BusinessBeneficiaryType'
+      consumerBeneficiaryType:
+        allOf:
+          - $ref: '#/definitions/ConsumerBeneficiaryType'
+  BeneficiaryDetails:
+    type: object
+    properties:
+      instrumentDetailsBeneficiary:
+        allOf:
+          - $ref: '#/definitions/InstrumentDetailsBeneficiary'
+      bankAccountDetailsBeneficiary:
+        $ref: '#/definitions/BankAccountDetailsBeneficiary'
+  BeneficiaryState:
+    type: string
+    enum:
+      - INITIALISED
+      - INVALID
+      - PENDING_CHALLENGE
+      - CHALLENGE_FAILED
+      - ACTIVE
+      - REMOVED
+  BeneficiaryValidationFailure:
+    type: string
+    enum:
+      - INSTRUMENT_DETAILS_NOT_FOUND
+      - BENEFICIARY_DETAILS_ALREADY_EXIST
+      - BENEFICIARY_BELONGS_TO_SAME_IDENTITY
+      - BENEFICIARY_VALIDATION_FAILURE_UNKNOWN
+  BusinessBeneficiaryType:
+    type: object
+    properties:
+      businessName:
+        type: string
+  ConsumerBeneficiaryType:
+    type: object
+    properties:
+      fullName:
+        type: string
+  InstrumentDetailsBeneficiary:
+    required:
+      - instrument
+    type: object
+    properties:
+      instrument:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryInstrumentDetails'
+  BeneficiaryInstrumentDetails:
+    required:
+      - type
+      - id
+    type: object
+    properties:
+      type:
+        type: string
+      id:
+        type: string
+  BankAccountDetailsBeneficiary:
+    type: object
+    properties:
+      beneficiaryName:
+        type: string
+        description: The name of the beneficiary.
+      address:
+        type: string
+        description: The beneficiary address.
+      bankName:
+        type: string
+        description: The name of the beneficiary bank.
+      bankAddress:
+        type: string
+        description: The beneficiary bank address.
+      bankCountry:
+        type: string
+        description: The beneficiary bank country - using ISO 3166 alpha-2.
+      sepa:
+        $ref: '#/definitions/Sepa'
+      fasterPayments:
+        $ref: '#/definitions/FasterPayments'
+  AuthForwardingEvent:
+    type: object
+    "required": [ "cardId", "transactionId", "authorisationType", "sourceAmount", "transactionAmount",  "totalTransactionCost", "transactionTimestamp", "merchantData", "owner"]
+    "additionalProperties": false
+    properties:
+      cardId:
+        type: string
+        description: The unique identifier of the card on which an authorisation is being performed
+      transactionId:
+        type: string
+        description: The id of this transaction, for reference.
+      parentManagedAccountId:
+        type: string
+        description: The unique identifier of the card on which an authorisation is being performed
+      authorisationType:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingAuthorisationType'
+          - description: The type of authorisation (Debit or Credit)
+      sourceAmount:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+          - description: The amount in the currency of the merchant.
+      transactionAmount:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+          - description: The amount in the currency of the card.
+      totalTransactionCost:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+          - description: The total amount to be deducted in the currency of the card. This is the summation of the transaction amount, forex padding and forex fees.
+      transactionTimestamp:
+        type: integer
+        description: The timestamp of the transaction, using epoch timestamp with millisecond precision.
+      merchantData:
+        allOf:
+          - $ref: '#/definitions/MerchantData'
+          - description: Merchant related information
+      owner:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+          - description: The owner of the card
+      cardholderPresent:
+        allOf:
+          - $ref: '#/definitions/CardholderPresent'
+          - description: Optional detail indicating if the card holder was present when the authorisation occurred.
+      cardPresent:
+        type: boolean
+        description: Optional detail indicating if the card was present when the authorisation occurred.
+      authCode:
+        type: string
+        description: The authorisation code associated with this authorisation.
+      forexPadding:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+          - description: The forex padding amount, if any, that has been included in the transactionAmount.
+      forexFee:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+          - description: The forex fee, if any, that has been included in the transactionAmount.
+      mode:
+        type: string
+        description: The card can be created in prepaid mode or debit mode.
+      availableBalance:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+          - description: The card available balance before this authorisation is processed.
+      availableToSpend:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingAvailableToSpend'
+  AuthForwardingAuthorisationType:
+    type: string
+    enum:
+      - AUTHORISED
+      - AUTHORISED_CREDIT
+  MerchantData:
+    type: object
+    required:
+      - merchantName
+      - merchantCategoryCode
+    properties:
+      merchantName:
+        type: string
+        description: The name of the merchant where the authorisation has been made.
+      merchantCategoryCode:
+        type: string
+        description: The merchant category code.
+      merchantId:
+        type: string
+        description: The merchant ID.
+      merchantDescription:
+        type: string
+        description: The merchant description
+      merchantStreet:
+        type: string
+        description: The merchant street address (if available)
+      merchantCity:
+        type: string
+        description: The merchant city (if available)
+      merchantState:
+        type: string
+        description: The merchant state address (if available)
+      merchantPostalCode:
+        type: string
+        description: The merchant postal code (if available)
+      merchantCountry:
+        type: string
+        description: The merchant country address
+      merchantTelephone:
+        type: string
+        description: The merchant telephone number
+      merchantURL:
+        type: string
+        description: The merchant URL
+      merchantNameOther:
+        type: string
+        description: The alternative merchant name
+      merchantNetworkId:
+        type: string
+        description: The merchant's network id
+      merchantContact:
+        type: string
+        description: The merchant's contact (if available)
+  CardholderPresent:
+    type: string
+    enum:
+      - PRESENT
+      - NOT_PRESENT
+      - PRESENCE_UNKNOWN
+  AuthForwardingCurrencyAmount:
+    required:
+      - currency
+    type: object
+    properties:
+      currency:
+        maxLength: 3
+        minLength: 3
+        pattern: ^[A-Z]*$
+        type: string
+        description: The currency ISO-4217 code, i.e. a three letter uppercase code, such as GBP, EUR, USD.
+      amount:
+        type: integer
+        description: The monetary amount, scaled to the lowest denomination of the currency. For example, an amount of 1000 for a EUR currency is actually 1000 Euro cents, i.e. EUR 10.00.
+    description: A message representing a monetary amount in a particular currency.
+  AuthForwardingAvailableToSpend:
+    type: array
+    properties:
+      interval:
+        $ref: '#/definitions/Interval'
+      value:
+        allOf:
+          - $ref: '#/definitions/AuthForwardingCurrencyAmount'
+parameters:
+  call-ref:
+    name: call-ref
+    in: header
+    description: A call reference generated by the caller and unique to the caller to provide correlation between the caller and system with a maximum length of 255
+    required: false
+    style: simple
+    explode: false
+    schema:
+      type: string
+  published-timestamp:
+    name: published-timestamp
+    in: header
+    description: The timestamp when this event was published
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: integer
+      format: int32
+  signature:
+    name: signature
+    in: header
+    description: The signature to verify the authenticity of this request.  The base64 hash (HmacSHA256) of the published timestamp using your API key.
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: string

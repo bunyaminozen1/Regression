@@ -1,0 +1,109 @@
+[
+  {
+    "programmeName": "ApplicationOne",
+    "programmeCode": "ApplicationOne",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": true
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": false,
+    "authyEnabled": false,
+    "biometricEnabled": false,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea"
+        }
+      ]
+    },
+    "consumerManagedAccountProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea"
+        }
+      ]
+    },
+    "authenticationType": "PASSWORD",
+    "paymentModel": "DEFAULT_QA",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea_nitecrest_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_nitecrest_debit"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_debit"
+        }
+      ]
+    },
+    "consumerManagedCardProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea_nitecrest_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_nitecrest_debit"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_debit"
+        }
+      ]
+    },
+    "accountInformationFactors": {
+      "primaryFactors": [
+        {
+          "factor": "PASSWORD"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "paymentInitiationFactors": {
+      "primaryFactors": [
+        {
+          "factor": "SMS"
+        },
+        {
+          "factor": "AUTHY"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "beneficiaryManagementFactors": {
+      "primaryFactors": [
+        {
+          "factor": "SMS"
+        },
+        {
+          "factor": "AUTHY"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "jurisdiction": "EEA"
+  }
+]

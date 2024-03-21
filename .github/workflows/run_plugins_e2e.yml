@@ -1,0 +1,40 @@
+name: Run Plugins E2E
+
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: "0 20 * * *"
+
+jobs:
+  midParallelSequentialJobs:
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [ plugins_authentication,
+                       plugins_authentication_factors,
+                       plugins_buyers,
+                       plugins_users,
+                       plugins_linked_external_accounts,
+                       plugins_zba,
+                       plugins_payment_run,
+                       plugins_sca,
+                       plugins_ui_components,
+                       plugins_webhooks,
+                       plugins_admin_portal]
+        forkCount: [ 4 ]
+      max-parallel: 1
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}
+  sequential:
+    if: ${{ always() }}
+    needs: midParallelSequentialJobs
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [plugins_payment_run_full_flow]
+        forkCount: [1]
+      max-parallel: 1
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}

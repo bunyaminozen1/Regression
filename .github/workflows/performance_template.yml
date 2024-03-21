@@ -1,0 +1,29 @@
+name: Performance Build Template
+
+on:
+  workflow_call:
+    inputs:
+      simulation_class:
+        required: true
+        type: string
+
+jobs:
+  maven:
+    runs-on: weavr-2xlarge-group
+    continue-on-error: true
+    steps:
+      - name: Install Git
+        run: sudo apt-get update && sudo apt-get install git -y
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.8.0
+        with:
+          java-version: 11
+          maven-version: 3.9.3
+      - name: Run Maven With ${{ inputs.simulation_class }}
+        run: mvn gatling:test -Dgatling.simulationClass=${{ inputs.simulation_class }}
+        continue-on-error: true
+      - name: Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.simulation_class }}
+          path: target/gatling

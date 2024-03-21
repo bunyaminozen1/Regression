@@ -1,0 +1,1050 @@
+[
+  {
+    "id": "bankofscotlandbusiness",
+    "displayName": "Bank of Scotland (Business)",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/b24afef8-834d-4eb4-a469-41bca60ae636?size=0",
+      "icon": "https://images.yapily.com/image/dfc2ed6f-32b1-45ed-afa0-ff2791020b37?size=0"
+    },
+    "info": {
+      "loginUrl": "https://online-business.bankofscotland.co.uk/business/logon/login.jsp",
+      "helplinePhoneNumber": "0345 300 0268"
+    },
+    "capabilities": {
+      "maxAmount": 25000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "supported"
+    }
+  },
+  {
+    "id": "aibgbbusiness",
+    "displayName": "Allied Irish Bank Business",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/f0eb1a0c-4001-480d-9a83-74c2c187127a?size=0",
+      "icon": "https://images.yapily.com/image/364093b3-2c5a-4021-b757-e707f170d63d?size=0"
+    },
+    "info": {
+      "loginUrl": "https://ibusinessbanking.aibgb1.co.uk/business/login?redirect=https://ibusinessbanking.aibgb1.co.uk/business#/form/view",
+      "helplinePhoneNumber": "0370 2430 331"
+    },
+    "capabilities": {
+      "maxAmount": 10000,
+      "workingHoursOpening": "07:00:00",
+      "workingHoursClosing": "24:00:00",
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "bankofirelandbusiness_uk",
+    "displayName": "Bank of Ireland (Business)",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/d1ff0461-32ba-4270-88d1-1a282399f12a?size=0",
+      "icon": "https://images.yapily.com/image/dfaa1ebd-eda2-4fb6-86c4-51ca3add4bde?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.businessonline-boi.com/WebUI/login-flow.html?execution=e1s1",
+      "helplinePhoneNumber": "0345 736 5555"
+    },
+    "capabilities": {
+      "maxAmount": 20000,
+      "closedOnWeekendsSingle": true,
+      "closedOnWeekendsBulk": true,
+      "closedOnHolidaysSingle": true,
+      "closedOnHolidaysBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "barclays_business",
+    "displayName": "Barclays Business",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/3af53a88-e06d-47d0-876f-40e360d4df74?size=0",
+      "icon": "https://images.yapily.com/image/674d2584-efb9-4f66-aa7a-03aae576035c?size=0"
+    },
+    "info": {
+      "loginUrl": "https://bank.barclays.co.uk/olb/authlogin/loginAppContainer.do#/identification",
+      "helplinePhoneNumber": "0345 605 2345"
+    },
+    "capabilities": {
+      "minAmount": 1,
+      "maxAmount": 50000,
+      "minPayees": 5,
+      "maxPayees": 50,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "supported"
+    }
+  },
+  {
+    "id": "barclays_corporate",
+    "displayName": "Barclays Corporate",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/c6fb60f6-07da-45c9-90cc-11ffc59c7474?size=0",
+      "icon": "https://images.yapily.com/image/b591ec82-9f24-4a2f-8ede-849adf11ad79?size=0"
+    },
+    "info": {
+      "loginUrl": "https://iportal.barclays.com/olb/auth/login",
+      "helplinePhoneNumber": "0330 156 00872 "
+    },
+    "capabilities": {
+      "minAmount": 1,
+      "maxAmount": 1000000,
+      "minPayees": 2,
+      "maxPayees": 50,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "danskebankbusiness_uk",
+    "displayName": "Danske Bank",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/8a495c7f-05a1-46ca-89ca-ed8c0ffe9730?size=0",
+      "icon": "https://images.yapily.com/image/a282d712-fff0-4ab3-99fc-863d603abcb1?size=0"
+    },
+    "info": {
+      "loginUrl": "https://danskebank.co.uk/business/help?n-login=bbnetbank",
+      "helplinePhoneNumber": ""
+    },
+    "capabilities": {
+      "maxAmount": 100000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "lloydsbusiness",
+    "displayName": "Lloyds (Business)",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/0248cab7-c834-41c7-b837-20a32fe7ff38?size=0",
+      "icon": "https://images.yapily.com/image/687ddef5-dd48-476a-b9a7-38e294431201?size=0"
+    },
+    "info": {
+      "loginUrl": "https://onlinebusiness.lloydsbank.co.uk",
+      "helplinePhoneNumber": "0345 072 5555"
+    },
+    "capabilities": {
+      "maxAmount": 25000,
+      "maxPayees": 25,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "supported"
+    }
+  },
+  {
+    "id": "natwest",
+    "displayName": "Natwest",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/0f2c716c-f9f4-4954-9d82-1d36150b3006?size=0",
+      "icon": "https://images.yapily.com/image/06a3822f-2890-4055-b1a1-d352532b6340?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.bankline.natwest.com/CWSLogon/logon.do",
+      "helplinePhoneNumber": "0345 711 4477"
+    },
+    "capabilities": {
+      "maxAmount": 50000,
+      "maxPayees": 10,
+      "requiresTrustedPayeesBulk": true,
+      "closedOnWeekendsSingle": true,
+      "closedOnWeekendsBulk": true,
+      "closedOnHolidaysSingle": true,
+      "closedOnHolidaysBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "monzo_ob",
+    "displayName": "Monzo",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/332bb781-3cc2-4f3e-ae79-1aba09fac991?size=0",
+      "icon": "https://images.yapily.com/image/f70dc041-c7a5-47d3-9c6b-846778eac01a?size=0"
+    },
+    "info": {
+      "loginUrl": "https://business.monzo.com/login",
+      "helplinePhoneNumber": "0800 802 1281"
+    },
+    "capabilities": {
+      "maxAmount": 50000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "mobileSingle": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "hsbcbusiness_uk",
+    "displayName": "HSBC UK Business",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/b968bc9b-f675-4bfd-b4c5-ab3aee19b167?size=0",
+      "icon": "https://images.yapily.com/image/da33b95f-edfd-49ae-a904-f760d85ecf40?size=0"
+    },
+    "info": {
+      "loginUrl": "https://online-banking.business.hsbc.co.uk/portalserver/hsbc/login",
+      "helplinePhoneNumber": "03457 60 60 60"
+    },
+    "capabilities": {
+      "maxAmount": 25000,
+      "maxPayees": 25,
+      "closedOnWeekendsBulk": true,
+      "closedOnHolidaysBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "aggregatesBulkTransactions": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "supported"
+    }
+  },
+  {
+    "id": "natwestbusiness",
+    "displayName": "Natwest Bankline",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/75c17eeb-79cb-429b-b8bc-17c4ceedff18?size=0",
+      "icon": "https://images.yapily.com/image/26d650e9-591e-41f8-ad97-d1c49566e634?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.onlinebanking.natwest.com/Default.aspx",
+      "helplinePhoneNumber": "0345 300 4108"
+    },
+    "capabilities": {
+      "maxAmount": 1000000,
+      "maxPayees": 25,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "enabled_by_default"
+    }
+  },
+  {
+    "id": "revolut",
+    "displayName": "Revolut",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/c3fbd5c1-37f6-41ab-a289-b8cd642f6367?size=0",
+      "icon": "https://images.yapily.com/image/fe9124de-3dd2-4b6f-a519-ad5f9e2b594e?size=0"
+    },
+    "info": {
+      "loginUrl": "https://business.revolut.com/signin",
+      "helplinePhoneNumber": "In app chat only"
+    },
+    "capabilities": {
+      "maxAmount": 250000,
+      "maxPayees": 1000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "rbs",
+    "displayName": "Royal Bank of Scotland",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/7a689514-dda3-4550-917b-c0243a9eabd3?size=0",
+      "icon": "https://images.yapily.com/image/694b1b08-bb78-40d8-bf58-aae12a40de99?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.bankline.rbs.com/CWSLogon/logon.do",
+      "helplinePhoneNumber": "0345 600 2230"
+    },
+    "capabilities": {
+      "maxAmount": 50000,
+      "maxPayees": 10,
+      "requiresTrustedPayeesBulk": true,
+      "closedOnWeekendsSingle": true,
+      "closedOnWeekendsBulk": true,
+      "closedOnHolidaysSingle": true,
+      "closedOnHolidaysBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "santander_uk",
+    "displayName": "Santander",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/c450311c-be8d-491b-a758-2e89cdaf33da?size=0",
+      "icon": "https://images.yapily.com/image/a32a626b-92e4-449f-843a-007ca9bb0240?size=0"
+    },
+    "info": {
+      "loginUrl": "https://business.santander.co.uk/olb/app/logon/access/#/logon",
+      "helplinePhoneNumber": "0330 123 9860"
+    },
+    "capabilities": {
+      "maxAmount": 99999.99,
+      "maxPayees": 1750,
+      "requiresTrustedPayeesBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "aggregatesBulkTransactions": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "rbsbusiness",
+    "displayName": "Royal Bank of Scotland Bankline",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/0aaec899-70ac-47e9-ab53-f53587c88c3c?size=0",
+      "icon": "https://images.yapily.com/image/23735cc4-18f6-4dbc-b67a-001ca9040c8c?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.digitalbanking.rbs.co.uk/Default.aspx",
+      "helplinePhoneNumber": "0345 300 4108"
+    },
+    "capabilities": {
+      "maxAmount": 1000000,
+      "maxPayees": 25,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "dualAuth": "enabled_by_default"
+    }
+  },
+  {
+    "id": "starling_ob",
+    "displayName": "Starling Bank",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/c9630456-8ce5-4ed2-9ba4-ae09220b7c63?size=0",
+      "icon": "https://images.yapily.com/image/398dcc4d-b350-4b8d-8d3d-cbd105eb9c63?size=0"
+    },
+    "info": {
+      "loginUrl": "https://oauth.starlingbank.com/oauth?response_type=code&redirect_uri=https://App.getStarlingbank.com/oauth/redirect&state=1f69a576-1335-4ff4-b997-8f7466651030&client_id=Vc2uoXZD0uz8TG0roWaV",
+      "helplinePhoneNumber": "020 7930 4450"
+    },
+    "capabilities": {
+      "maxAmount": 25000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "mobileSingle": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "tide",
+    "displayName": "Tide",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/8d770e46-34e8-4075-9496-a994bbaf1544?size=0",
+      "icon": "https://images.yapily.com/image/c8d4547b-5c35-43c2-ae21-e902268c5886?size=0"
+    },
+    "info": {
+      "loginUrl": "https://web.tide.co/login",
+      "helplinePhoneNumber": "In app chat only"
+    },
+    "capabilities": {
+      "maxAmount": 50000,
+      "minReferenceLength": 6,
+      "requiresTrustedPayeesBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "mobileSingle": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "tsb",
+    "displayName": "TSB Bank",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/5fd1c193-2a15-43eb-b8fd-7dc4b6f046df?size=0",
+      "icon": "https://images.yapily.com/image/626cd8d9-5b54-4b0b-b3d1-a621890e7446?size=0"
+    },
+    "info": {
+      "loginUrl": "https://businessinternetbanking.tsb.co.uk/business/logon/login/#/login",
+      "helplinePhoneNumber": "020 3284 1575"
+    },
+    "capabilities": {
+      "maxAmount": 50000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "ulsterbank_uk",
+    "displayName": "Ulster Bank (UK)",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/99031987-443f-4e95-a087-b28c91ff0258?size=0",
+      "icon": "https://images.yapily.com/image/6772712b-149c-48ba-b0ce-905887fda292?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.anytimebanking.ulsterbank.co.uk/Default.aspx",
+      "helplinePhoneNumber": "0345 366 5592"
+    },
+    "capabilities": {
+      "maxAmount": 1000000,
+      "maxPayees": 25,
+      "requiresTrustedPayeesBulk": true,
+      "closedOnWeekendsSingle": true,
+      "closedOnWeekendsBulk": true,
+      "closedOnHolidaysSingle": true,
+      "closedOnHolidaysBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "ulsterbankbusiness_uk",
+    "displayName": "Ulster Bankline (UK)",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/99031987-443f-4e95-a087-b28c91ff0258?size=0",
+      "icon": "https://images.yapily.com/image/6772712b-149c-48ba-b0ce-905887fda292?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www.bankline.ulsterbank.co.uk/CWSLogon/logon.do",
+      "helplinePhoneNumber": "0345 300 2942"
+    },
+    "capabilities": {
+      "maxAmount": 250000,
+      "maxPayees": 15,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileBulk": true,
+      "dualAuth": "enabled_by_default"
+    }
+  },
+  {
+    "id": "virginmoney",
+    "displayName": "Virgin Money",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/0294758d-ae35-4023-826d-9dc59fc15db8?size=0",
+      "icon": "https://images.yapily.com/image/fcac9f73-b37c-44a7-a46c-6047c5966c5b?size=0"
+    },
+    "info": {
+      "loginUrl": "https://login-and-registration.ib.apps.virginmoney.com/vm/business-user-identity?client_id=vm_web&response_type=token&state=e27c7f36-cbd5-4705-97c2-53439659c72b&redirect_uri=https://internet-banking.ib.apps.virginmoney.com/vm&scope=30&user_type=BAU",
+      "helplinePhoneNumber": "0800 345 7365"
+    },
+    "capabilities": {
+      "maxAmount": 30000,
+      "maxPayees": 750,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "wise-live",
+    "displayName": "Wise",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/a3113bf5-666c-4fc9-8d6a-0fea7a26c4c7?size=0",
+      "icon": "https://images.yapily.com/image/8180921d-e33a-4a6b-9dd0-c6baa3dd4f31?size=0"
+    },
+    "info": {
+      "loginUrl": "https://wise.com/login/",
+      "helplinePhoneNumber": "0203 974 1319"
+    },
+    "capabilities": {
+      "maxAmount": 1000000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "barclays-sandbox",
+    "displayName": "Barclays Sandbox",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "sandbox",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/b3d4b9e4-4678-40eb-b5b5-5c3d2fe258cd?size=0",
+      "icon": ""
+    },
+    "info": {
+      "loginUrl": "",
+      "helplinePhoneNumber": ""
+    },
+    "capabilities": {
+      "minPayees": 5,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "lloyds-sandbox",
+    "displayName": "Lloyds Sandbox",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "sandbox",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/cc5d6705-483d-4598-986f-ef8fd072ed7f?size=0",
+      "icon": ""
+    },
+    "info": {
+      "loginUrl": "",
+      "helplinePhoneNumber": ""
+    },
+    "capabilities": {
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "lloydscommercial_uk",
+    "displayName": "Lloyds Commercial UK",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/0248cab7-c834-41c7-b837-20a32fe7ff38?size=0",
+      "icon": "https://images.yapily.com/image/687ddef5-dd48-476a-b9a7-38e294431201?size=0"
+    },
+    "info": {
+      "loginUrl": "https://cbonline.lloydsbank.com",
+      "helplinePhoneNumber": "0345 072 5555"
+    },
+    "capabilities": {
+      "maxAmount": 250000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "supported"
+    }
+  },
+  {
+    "id": "bankofscotlandcommercial_uk",
+    "displayName": "Bank of Scotland Commercial UK",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/b24afef8-834d-4eb4-a469-41bca60ae636?size=0",
+      "icon": "https://images.yapily.com/image/dfc2ed6f-32b1-45ed-afa0-ff2791020b37?size=0"
+    },
+    "info": {
+      "loginUrl": "https://cbonline.bankofscotland.co.uk/PrimaryAuth/",
+      "helplinePhoneNumber": "0345 300 0268"
+    },
+    "capabilities": {
+      "maxAmount": 250000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "supported"
+    }
+  },
+  {
+    "id": "mettle",
+    "displayName": "Mettle",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/037f604f-eb33-4c66-b865-e1277ff926ce?size=0",
+      "icon": "https://images.yapily.com/image/f3fa5555-d9b6-40cb-be4a-470b15e014c2?size=0"
+    },
+    "info": {
+      "loginUrl": "https://web.mettle.co.uk/login",
+      "helplinePhoneNumber": "0800 069 8380"
+    },
+    "capabilities": {
+      "maxAmount": 10000,
+      "requiresTrustedPayeesBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "mobileSingle": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "cumberlandbuildingsociety",
+    "displayName": "Cumberland Building Society",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/02d90639-5fd7-4b49-b09b-58b61a442758?size=0",
+      "icon": "https://images.yapily.com/image/a9787902-659c-4447-941a-645db9d1b8c3?size=0"
+    },
+    "info": {
+      "loginUrl": "https://banking.cumberland.co.uk/Personal/BankFast-Username-Logon?_ga=2.245940295.212777753.1681742140-2111594423.1681742138#sst",
+      "helplinePhoneNumber": "01228 403 141"
+    },
+    "capabilities": {
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "coutts",
+    "displayName": "Coutts",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/be8a27ef-4508-4d7a-8e8b-f7b841a7b8e4?size=0",
+      "icon": "https://images.yapily.com/image/5f049447-3805-46fa-8e16-f3e89f6036c3?size=0"
+    },
+    "info": {
+      "loginUrl": "https://online.coutts.com/eBankingCouttsLogin/login",
+      "helplinePhoneNumber": "020 7957 2424"
+    },
+    "capabilities": {
+      "maxAmount": 250000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "dualAuth": "enabled_by_default_mobile"
+    }
+  },
+  {
+    "id": "hsbccorporate",
+    "displayName": "HSBC NET",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/ccd56ed6-c274-4c8e-a988-6cb8dda2fb1c?size=0",
+      "icon": "https://images.yapily.com/image/fc734d3c-4480-471e-94ee-500f83ae3bae?size=0"
+    },
+    "info": {
+      "loginUrl": "https://www2.secure.hsbcnet.com/uims/dl/DSP_AUTHENTICATION",
+      "helplinePhoneNumber": "0345 601 7118"
+    },
+    "capabilities": {
+      "maxAmount": 375000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "cashplus",
+    "displayName": "Cash Plus",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/782306b0-edf9-4c30-b881-90e7f8cccf3b?size=0",
+      "icon": "https://images.yapily.com/image/c6a645e3-3094-4099-b14f-28bf5b611e49?size=0"
+    },
+    "info": {
+      "loginUrl": "https://servicing.cashplus.com/identity/login?returnUrl=/onlineservicing/?_ga=2.232432283.542500519.1681732099-1400439179.1681732099",
+      "helplinePhoneNumber": "0330 024 0924"
+    },
+    "capabilities": {
+      "maxAmount": 25000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "caterallen",
+    "displayName": "Cater Allen",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/1e58b1cf-1d19-4379-a323-5962f5a2413b?size=0",
+      "icon": "https://images.yapily.com/image/9daa5360-d662-418e-9edf-7771002876f3?size=0"
+    },
+    "info": {
+      "loginUrl": "https://digital.caterallenonline.co.uk/iportalweb/",
+      "helplinePhoneNumber": "0800 092 3300"
+    },
+    "capabilities": {
+      "maxAmount": 100000,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "modelo-sandbox",
+    "displayName": "Modelo Sandbox",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "sandbox",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/ca502f24-d6df-4785-b4b8-1034b100af77?size=0",
+      "icon": ""
+    },
+    "info": {
+      "loginUrl": "https://www.google.co.uk/",
+      "helplinePhoneNumber": ""
+    },
+    "capabilities": {
+      "maxAmount": 30000,
+      "minPayees": 2,
+      "maxPayees": 15,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "cooperativebank",
+    "displayName": "Cooperative Bank",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/d5c3e6ad-b1ec-4a98-96b2-f7653dd23254?size=0",
+      "icon": "https://images.yapily.com/image/9d309d80-48dd-4b40-9810-945e978aa0c3?size=0"
+    },
+    "info": {
+      "loginUrl": "https://digital-business.co-operativebank.co.uk",
+      "helplinePhoneNumber": "03457 213 213"
+    },
+    "capabilities": {
+      "maxAmount": 20000,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "ing",
+    "displayName": "ING",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/90e14554-7ea1-440a-82ec-c0adcca5b497?size=0",
+      "icon": "https://images.yapily.com/image/115742bf-0e4e-49d9-ad86-df5afc385c00?size=0"
+    },
+    "info": {
+      "loginUrl": "https://myaccount.ing.com/",
+      "helplinePhoneNumber": "020 7767 1000"
+    },
+    "capabilities": {
+      "maxAmount": 100000,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "hoaresbank",
+    "displayName": "Hoares Bank",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/f63ff139-dd8b-48d4-99fc-577a906e3e75?size=0",
+      "icon": "https://images.yapily.com/image/9917712f-f3b4-44fc-92b0-2d7fe71b9b1e?size=0"
+    },
+    "info": {
+      "loginUrl": "https://online.hoaresbank.co.uk/portalserver/v2/chc-banking/login/step-1",
+      "helplinePhoneNumber": "020 7353 4522"
+    },
+    "capabilities": {
+      "maxAmount": 100000,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "soldo-token",
+    "displayName": "Soldo UK",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/dc62e395-0b98-4479-90ab-523c422cdac7?size=0",
+      "icon": "https://images.yapily.com/image/712baca6-208e-4075-b2bd-4355d36bc3c8?size=0"
+    },
+    "info": {
+      "loginUrl": "https://manage.soldo.com/business-console/main-app-container/index.html#/authentication-mfe/login",
+      "helplinePhoneNumber": "In app chat only"
+    },
+    "capabilities": {
+      "maxAmount": 10000,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "handelsbankenbusiness_uk",
+    "displayName": "Handelsbanken Business UK",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/0a1a3f47-3fb3-4eac-bc27-fb2ae0bbede6?size=0",
+      "icon": "https://images.yapily.com/image/a722b3b6-7cb9-42b6-810a-5a33d0184ede?size=0"
+    },
+    "info": {
+      "loginUrl": "https://secure.handelsbanken.com/logon/gb/corp/en/digital-id/",
+      "helplinePhoneNumber": "0800 470 8000"
+    },
+    "capabilities": {
+      "maxAmount": 250000,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "mock-bank",
+    "displayName": "Mock Bank",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "mock",
+    "releaseStage": "live",
+    "images": {
+      "logo": "",
+      "icon": "https://uploads-ssl.webflow.com/617fbbd004d9ae79c6296b1f/62559cea1a685fbc58c618b2_Comma%20C%20Icon%201.png"
+    },
+    "info": {
+      "loginUrl": "",
+      "helplinePhoneNumber": "118 118"
+    },
+    "capabilities": {
+      "maxAmount": 1000000,
+      "minPayees": 2,
+      "maxPayees": 15,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "hsbckinetic",
+    "displayName": "HSBC Kinetic",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "live",
+    "releaseStage": "live",
+    "images": {
+      "logo": "https://images.yapily.com/image/ccd56ed6-c274-4c8e-a988-6cb8dda2fb1c?size=0",
+      "icon": "https://images.yapily.com/image/fc734d3c-4480-471e-94ee-500f83ae3bae"
+    },
+    "info": {
+      "loginUrl": "https://secure.hsbckinetic.co.uk/login",
+      "helplinePhoneNumber": "03457 60 60 60"
+    },
+    "capabilities": {
+      "maxAmount": 25000,
+      "maxPayees": 25,
+      "closedOnWeekendsBulk": true,
+      "closedOnHolidaysBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "statusBulkImmediate": true,
+      "aggregatesBulkTransactions": true,
+      "mobileSingle": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  },
+  {
+    "id": "natwest-sandbox",
+    "displayName": "Natwest Bank Sandbox",
+    "countries": [
+      "GB"
+    ],
+    "environmentType": "sandbox",
+    "releaseStage": "beta",
+    "images": {
+      "logo": "https://images.yapily.com/image/e7bab90f-f77e-47c0-878f-3efa60b72205?size=0",
+      "icon": ""
+    },
+    "info": {
+      "loginUrl": "",
+      "helplinePhoneNumber": ""
+    },
+    "capabilities": {
+      "minReferenceLength": 2,
+      "requiresTrustedPayeesBulk": true,
+      "paymentSingleImmediate": true,
+      "statusSingleImmediate": true,
+      "paymentBulkImmediate": true,
+      "mobileBulk": true,
+      "dualAuth": "not_supported"
+    }
+  }
+]

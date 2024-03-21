@@ -1,0 +1,44 @@
+name: Maven Build Template
+
+on:
+  workflow_call:
+    inputs:
+      module_group:
+        required: true
+        type: string
+      forkCount:
+        required: false
+        default: 4
+        type: number
+      executionLocation:
+        required: false
+        default: QA
+        type: string
+      sandboxInnovator:
+        required: false
+        default: 1991
+        type: string
+
+jobs:
+  maven:
+    runs-on: weavr-2xlarge-group
+    continue-on-error: true
+    timeout-minutes: 60
+    steps:
+      - name: Install Git
+        run: sudo apt-get update && sudo apt-get install git -y
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.8.0
+        with:
+          java-version: 11
+          maven-version: 3.9.3
+      - name: Run Maven With ${{ inputs.module_group }}
+        run: mvn --batch-mode clean site test -Dgroups=${{ inputs.module_group }} -Dparallel=all -DforkCount=${{ inputs.forkCount }} -Dexecution.location=${{ inputs.executionLocation }} -Dsandbox.innovator=${{ inputs.sandboxInnovator }}
+        continue-on-error: true
+      - name: Test Reports
+        uses: turing85/publish-report@v1
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          report-name: ${{ inputs.module_group }} Tests         # Name of the check run which will be created
+          report-path: target/surefire-reports/TEST-*.xml,target/failsafe-reports/TEST-*.xml  # Path to test results
+          report-reporter: java-junit   # Format of test results

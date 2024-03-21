@@ -1,0 +1,7 @@
+package opc.enums.sumsub;
+
+public enum RejectLabels {
+    ADDITIONAL_DOCUMENT_REQUIRED,
+    COMPANY_NOT_DEFINED_REPRESENTATIVES,
+    COMPROMISED_PERSONS
+}

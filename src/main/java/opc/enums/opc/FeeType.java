@@ -1,0 +1,19 @@
+package opc.enums.opc;
+
+public enum FeeType {
+    DEPOSIT_FEE,
+    CHARGE_FEE,
+    MA_TO_MA_TRANSFER_FEE,
+    MA_TO_MC_TRANSFER_FEE,
+    MC_TO_MA_TRANSFER_FEE,
+    MC_TO_MC_TRANSFER_FEE,
+    MA_TO_MA_SEND_FEE,
+    MA_TO_MC_SEND_FEE,
+    MC_TO_MA_SEND_FEE,
+    MC_TO_MC_SEND_FEE,
+    PURCHASE_FEE,
+    REFUND_FEE,
+    SEPA_OWT_FEE,
+    FASTER_PAYMENTS_OWT_FEE,
+    ATM_FEE
+}

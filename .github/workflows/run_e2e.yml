@@ -1,0 +1,106 @@
+name: Run E2E
+
+on:
+  workflow_dispatch:
+
+jobs:
+  max:
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [ multi_authentication,
+                       multi_authentication_factors,
+                       multi_managed_accounts,
+                       multi_managed_cards_operations,
+                       multi_managed_cards_spend_rules,
+                       multi_deposits,
+                       multi_transfers,
+                       multi_sca_identities,
+                       multi_sca_perpetual,
+                       multi_sca_managed_accounts,
+                       multi_sca_managed_cards,
+                       multi_sca_transactions]
+        forkCount: [ 10 ]
+      max-parallel: 1
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}
+  mid1:
+    if: ${{ always() }}
+    needs: max
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [multi_consumers, multi_corporates, multi_passwords, multi_users]
+        forkCount: [6]
+        include:
+          - moduleGroup: multi_owts
+            forkCount: 4
+          - moduleGroup: multi_beneficiaries_owts
+            forkCount: 4
+          - moduleGroup: multi_bulk_owts
+            forkCount: 4
+          - moduleGroup: multi_scheduled_owts
+            forkCount: 4
+          - moduleGroup: multi_sends
+            forkCount: 4
+          - moduleGroup: multi_beneficiaries_sends
+            forkCount: 4
+          - moduleGroup: multi_bulk_sends
+            forkCount: 4
+          - moduleGroup: multi_scheduled_sends
+            forkCount: 4
+      max-parallel: 2
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}
+  mid2:
+    if: ${{ always() }}
+    needs: mid1
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [multi_managed_cards_transactions_admin_setup,
+                      multi_managed_cards_transactions_backoffice_setup,
+                      multi_managed_cards_transactions_innovator_setup,
+                      multi_managed_cards_transactions,
+                      multi_sumsub_corporate_webhooks,
+                      multi_sumsub_consumer_webhooks,
+                      multi_backoffice_identities,
+                      multi_backoffice_instruments,
+                      multi_backoffice_transactions,
+                      multi_webhooks,
+                      multi_beneficiary_webhooks,
+                      multi_identity_webhooks,
+                      multi_gps_webhooks,
+                      multi_managed_accounts_webhooks,
+                      multi_3ds,
+                      multi_3ds_authy,
+                      multi_3ds_transactions,
+                      multi_beneficiaries,
+                      multi_semi,
+                      multi_private]
+        forkCount: [4]
+      max-parallel: 1
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}
+  min:
+    if: ${{ always() }}
+    needs: mid2
+    uses: ./.github/workflows/maven_template.yml
+    strategy:
+      matrix:
+        moduleGroup: [multi_managed_cards_provisioning,
+                      multi_owts_canned,
+                      multi_authorisation_forwarding,
+                      multi_limits,
+                      multi_security,
+                      multi_sumsub_corporate,
+                      multi_sumsub_consumer,
+                      secure]
+        forkCount: [1]
+      max-parallel: 1
+    with:
+      module_group: ${{ matrix.moduleGroup }}
+      forkCount: ${{ matrix.forkCount }}

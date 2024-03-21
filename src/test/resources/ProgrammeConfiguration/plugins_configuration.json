@@ -1,0 +1,192 @@
+[
+  {
+    "programmeName": "PluginsApp",
+    "programmeCode": "PluginsApp",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": true
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": true,
+    "authyEnabled": false,
+    "biometricEnabled": false,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": null,
+    "consumerManagedAccountProfiles": null,
+    "authenticationType": "COMPLEX_PASSWORD",
+    "paymentModel": "DEFAULT_PAYMENT_RUN",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": null,
+    "consumerManagedCardProfiles": null,
+    "accountInformationFactors": null,
+    "paymentInitiationFactors": null,
+    "beneficiaryManagementFactors": null,
+    "jurisdiction": "UK"
+  },
+  {
+    "programmeName": "PluginsAppTwo",
+    "programmeCode": "PluginsAppTwo",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": true
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": true,
+    "authyEnabled": false,
+    "biometricEnabled": false,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": null,
+    "consumerManagedAccountProfiles": null,
+    "authenticationType": "COMPLEX_PASSWORD",
+    "paymentModel": "DEFAULT_PAYMENT_RUN",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": null,
+    "consumerManagedCardProfiles": null,
+    "accountInformationFactors": null,
+    "paymentInitiationFactors": null,
+    "beneficiaryManagementFactors": null,
+    "jurisdiction": "UK"
+  },
+  {
+    "programmeName": "PluginsScaApp",
+    "programmeCode": "PluginsScaApp",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": false
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": true,
+    "authyEnabled": false,
+    "biometricEnabled": false,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": null,
+    "consumerManagedAccountProfiles": null,
+    "authenticationType": "COMPLEX_PASSWORD",
+    "paymentModel": "DEFAULT_PAYMENT_RUN",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": null,
+    "consumerManagedCardProfiles": null,
+    "accountInformationFactors": null,
+    "paymentInitiationFactors": null,
+    "beneficiaryManagementFactors": null,
+    "jurisdiction": "UK"
+  },
+  {
+    "programmeName": "PluginsScaMaApp",
+    "programmeCode": "PluginsScaMaApp",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": false
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": true,
+    "authyEnabled": false,
+    "biometricEnabled": false,
+    "scaMaEnabled": true,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": null,
+    "consumerManagedAccountProfiles": null,
+    "authenticationType": "COMPLEX_PASSWORD",
+    "paymentModel": "DEFAULT_PAYMENT_RUN",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": null,
+    "consumerManagedCardProfiles": null,
+    "accountInformationFactors": null,
+    "paymentInitiationFactors": null,
+    "beneficiaryManagementFactors": null,
+    "jurisdiction": "UK"
+  },
+  {
+    "programmeName": "PluginsWebhooksApp",
+    "programmeCode": "PluginsWebhooksApp",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": false
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": false,
+    "authyEnabled": false,
+    "biometricEnabled": false,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": null,
+    "consumerManagedAccountProfiles": null,
+    "authenticationType": "COMPLEX_PASSWORD",
+    "paymentModel": "DEFAULT_PAYMENT_RUN",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": null,
+    "consumerManagedCardProfiles": null,
+    "accountInformationFactors": null,
+    "paymentInitiationFactors": null,
+    "beneficiaryManagementFactors": null,
+    "jurisdiction": "UK"
+  }
+]

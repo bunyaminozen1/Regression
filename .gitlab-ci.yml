@@ -1,0 +1,435 @@
+variables:
+  MAVEN_IMAGE: maven:3.8.5-jdk-11-slim
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Xmx2560m"
+
+stages:
+  - identities
+  - instruments
+  - transactions
+  - gps
+  - limits
+  - security
+  - sca
+  - sumsub
+  - multi_backoffice
+  - webhooks
+  - 3ds
+  - beneficiaries
+  - secure
+  - semi
+  - performance
+
+.job_template: &test_template
+  image: $MAVEN_IMAGE
+  cache:
+    paths:
+      - .m2/repository
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
+    paths:
+      - target/site/*
+  tags:
+    - aws-e2e
+  allow_failure: true
+
+.job_template_performance: &performance_test_template
+  image: $MAVEN_IMAGE
+  cache:
+    paths:
+      - .m2/repository
+  artifacts:
+    paths:
+      - target/gatling/*
+  tags:
+    - aws-e2e
+  allow_failure: true
+
+access:
+  <<: *test_template
+  stage: identities
+  script:
+    - mvn clean site test -Dgroups=multi_authentication -Dparallel=all -DforkCount=4
+  rules:
+    - when: manual
+
+consumers:
+  <<: *test_template
+  stage: identities
+  script:
+    - mvn clean site test -Dgroups=multi_consumers -Dparallel=all -DforkCount=4
+  needs:
+    - access
+
+corporates:
+  <<: *test_template
+  stage: identities
+  script:
+    - mvn clean site test -Dgroups=multi_corporates -Dparallel=all -DforkCount=4
+  needs:
+    - access
+
+factors:
+  <<: *test_template
+  stage: identities
+  script:
+    - mvn clean site test -Dgroups=multi_authentication_factors -Dparallel=all -DforkCount=4
+  needs:
+    - corporates
+
+passwords:
+  <<: *test_template
+  stage: identities
+  script:
+    - mvn clean site test -Dgroups=multi_passwords -Dparallel=all -DforkCount=4
+  needs:
+    - factors
+
+users:
+  <<: *test_template
+  stage: identities
+  script:
+    - mvn clean site test -Dgroups=multi_users -Dparallel=all -DforkCount=4
+  needs:
+    - factors
+
+accounts:
+  <<: *test_template
+  stage: instruments
+  script:
+    - mvn clean site test -Dgroups=multi_managed_accounts -Dparallel=all -DforkCount=4
+  needs:
+    - users
+
+cards_operations:
+  <<: *test_template
+  stage: instruments
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_operations -Dparallel=all -DforkCount=4
+  needs:
+    - accounts
+
+cards_provisioning:
+  <<: *test_template
+  stage: instruments
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_provisioning -Dparallel=none
+  needs:
+    - cards_operations
+
+cards_spend_rules:
+  <<: *test_template
+  stage: instruments
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_spend_rules -Dparallel=all -DforkCount=4
+  needs:
+    - cards_provisioning
+
+deposits:
+  <<: *test_template
+  stage: transactions
+  script:
+    - mvn clean site test -Dgroups=multi_deposits -Dparallel=all -DforkCount=4
+  needs:
+    - cards_spend_rules
+
+owts:
+  <<: *test_template
+  stage: transactions
+  script:
+    - mvn clean site test -Dgroups=multi_owts -Dparallel=all -DforkCount=4
+  needs:
+    - cards_spend_rules
+
+sends:
+  <<: *test_template
+  stage: transactions
+  script:
+    - mvn clean site test -Dgroups=multi_sends -Dparallel=all -DforkCount=4
+  needs: [deposits, owts]
+
+transfers:
+  <<: *test_template
+  stage: transactions
+  script:
+    - mvn clean site test -Dgroups=multi_transfers -Dparallel=all -DforkCount=4
+  needs: [deposits, owts]
+
+auth_forwarding:
+  <<: *test_template
+  stage: gps
+  script:
+    - mvn clean site test -Dgroups=multi_authorisation_forwarding -Dparallel=none
+  needs: [sends, transfers]
+
+purchase_admin_setup:
+  <<: *test_template
+  stage: gps
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_transactions_admin_setup
+  needs:
+    - auth_forwarding
+
+purchase_backoffice_setup:
+  <<: *test_template
+  stage: gps
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_transactions_backoffice_setup -Dparallel=all -DforkCount=4
+  needs:
+    - purchase_admin_setup
+
+purchase_innovator_setup:
+  <<: *test_template
+  stage: gps
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_transactions_innovator_setup
+  needs:
+    - purchase_backoffice_setup
+
+purchases:
+  <<: *test_template
+  stage: gps
+  script:
+    - mvn clean site test -Dgroups=multi_managed_cards_transactions -Dparallel=all -DforkCount=4
+  needs:
+    - purchase_innovator_setup
+
+limits:
+  <<: *test_template
+  stage: limits
+  script:
+    - mvn clean site test -Dgroups=multi_limits -Dparallel=none
+  needs:
+    - purchases
+
+security:
+  <<: *test_template
+  stage: security
+  script:
+    - mvn clean site test -Dgroups=multi_security -Dparallel=none
+  needs:
+    - limits
+
+sca_identities:
+  <<: *test_template
+  stage: sca
+  script:
+    - mvn clean site test -Dgroups=multi_sca_identities -Dparallel=all -DforkCount=4
+  needs:
+    - security
+
+sca_instruments:
+  <<: *test_template
+  stage: sca
+  script:
+    - mvn clean site test -Dgroups=multi_sca_instruments -Dparallel=all -DforkCount=4
+  needs:
+    - sca_identities
+
+sca_transactions:
+  <<: *test_template
+  stage: sca
+  script:
+    - mvn clean site test -Dgroups=multi_sca_transactions -Dparallel=all -DforkCount=4
+  needs:
+    - sca_instruments
+
+sumsub_corporate:
+  <<: *test_template
+  stage: sumsub
+  script:
+    - mvn clean site test -Dgroups=multi_sumsub_corporate -Dparallel=none
+  needs:
+    - sca_transactions
+
+sumsub_consumer:
+  <<: *test_template
+  stage: sumsub
+  script:
+    - mvn clean site test -Dgroups=multi_sumsub_consumer -Dparallel=none
+  needs:
+    - sumsub_corporate
+
+sumsub_corporate_webhooks:
+  <<: *test_template
+  stage: sumsub
+  script:
+    - mvn clean site test -Dgroups=multi_sumsub_corporate_webhooks -Dparallel=none
+  needs:
+    - sumsub_consumer
+
+sumsub_consumer_webhooks:
+  <<: *test_template
+  stage: sumsub
+  script:
+    - mvn clean site test -Dgroups=multi_sumsub_consumer_webhooks -Dparallel=none
+  needs:
+    - sumsub_corporate_webhooks
+
+backoffice_identities:
+  <<: *test_template
+  stage: multi_backoffice
+  script:
+    - mvn clean site test -Dgroups=multi_backoffice_identities -Dparallel=all -DforkCount=4
+  needs:
+    - sumsub_consumer_webhooks
+
+backoffice_instruments:
+  <<: *test_template
+  stage: multi_backoffice
+  script:
+    - mvn clean site test -Dgroups=multi_backoffice_instruments -Dparallel=all -DforkCount=4
+  needs:
+    - sumsub_consumer_webhooks
+
+backoffice_transactions:
+  <<: *test_template
+  stage: multi_backoffice
+  script:
+    - mvn clean site test -Dgroups=multi_backoffice_transactions -Dparallel=all -DforkCount=4
+  needs:
+    - sumsub_consumer_webhooks
+
+webhooks:
+  <<: *test_template
+  stage: webhooks
+  script:
+    - mvn clean site test -Dgroups=multi_webhooks -Dparallel=none
+  needs: [backoffice_identities, backoffice_instruments, backoffice_transactions]
+
+beneficiary_webhooks:
+  <<: *test_template
+  stage: webhooks
+  script:
+    - mvn clean site test -Dgroups=multi_beneficiary_webhooks -Dparallel=none
+  needs:
+    - webhooks
+
+identity_webhooks:
+  <<: *test_template
+  stage: webhooks
+  script:
+    - mvn clean site test -Dgroups=multi_identity_webhooks -Dparallel=none
+  needs:
+    - beneficiary_webhooks
+
+gps_webhooks:
+  <<: *test_template
+  stage: webhooks
+  script:
+    - mvn clean site test -Dgroups=multi_gps_webhooks -Dparallel=none
+  needs:
+    - identity_webhooks
+
+managed_account_webhooks:
+  <<: *test_template
+  stage: webhooks
+  script:
+    - mvn clean site test -Dgroups=multi_managed_accounts_webhooks -Dparallel=none
+  needs:
+    - gps_webhooks
+
+3ds:
+  <<: *test_template
+  stage: 3ds
+  script:
+    - mvn clean site test -Dgroups=multi_3ds -Dparallel=all -DforkCount=4
+  needs:
+    - managed_account_webhooks
+
+3ds_authy:
+  <<: *test_template
+  stage: 3ds
+  script:
+    - mvn clean site test -Dgroups=multi_3ds_authy -Dparallel=all -DforkCount=4
+  needs:
+    - 3ds
+
+3ds_transactions:
+  <<: *test_template
+  stage: 3ds
+  script:
+    - mvn clean site test -Dgroups=multi_3ds_transactions -Dparallel=all -DforkCount=4
+  needs:
+    - 3ds_authy
+
+beneficiaries:
+  <<: *test_template
+  stage: beneficiaries
+  script:
+    - mvn clean site test -Dgroups=multi_beneficiaries -Dparallel=all -DforkCount=4
+  needs:
+    - 3ds_transactions
+
+secure:
+  <<: *test_template
+  stage: secure
+  script:
+    - mvn clean site test -Dgroups=secure -Dparallel=none
+  needs:
+    - beneficiaries
+
+semi:
+  <<: *test_template
+  stage: semi
+  script:
+    - mvn clean site test -Dgroups=multi_semi -Dparallel=all -DforkCount=4
+  needs:
+    - secure
+
+login_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.authentication.LoginLoadTests
+  when: manual
+
+create_corporate_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.corporates.CreateCorporateLoadTest
+  needs:
+    - login_performance
+
+create_consumer_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.consumers.CreateConsumerLoadTest
+  needs:
+    - create_corporate_performance
+
+create_account_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.managedaccounts.CreateManagedAccountLoadTests
+  needs:
+    - create_consumer_performance
+
+create_card_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.managedcards.CreateManagedCardLoadTests
+  needs:
+    - create_account_performance
+
+send_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.sends.CreateSendsLoadTests
+  needs:
+    - create_card_performance
+
+transfer_performance:
+  <<: *performance_test_template
+  stage: performance
+  script:
+    - mvn gatling:test -Dgatling.simulationClass=opc.performance.transfers.CreateTransfersLoadTests
+  needs:
+    - send_performance

@@ -1,0 +1,986 @@
+swagger: '2.0'
+
+info:
+  title: Webhooks API
+  version: "1"
+
+paths:
+  /buyer_kyb_watch:
+    post:
+      tags:
+        - Buyers
+      summary: Buyers KYB status update
+      description: Notification that the KYB status of a buyer identity has been updated.
+      operationId: buyer_kyb_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/KybEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /buyer_activated_watch:
+    post:
+      tags:
+        - Buyers
+      summary: Buyers activation
+      description: Notification that a buyer identity has been activated.
+      operationId: buyer_activated_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/BuyerActivatedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /buyer_deactivated_watch:
+    post:
+      tags:
+        - Buyers
+      summary: Buyers deactivation
+      description: Notification that a buyer identity has been deactivated.
+      operationId: buyer_deactivated_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/BuyerDeactivatedEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /payment_run_watch:
+    post:
+      tags:
+        - Payment Runs
+      summary: Payment Run execution
+      description: Notification that a Payment Run has been processed.
+      operationId: payment_run_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/PaymentRunEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /payment_run_payment_watch:
+    post:
+      tags:
+        - Payment
+      summary: Payment
+      description: Notification that a Payment has been updated.
+      operationId: payment_run_payment_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/PaymentRunPaymentEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /login_watch:
+    post:
+      tags:
+        - Login
+      summary: Login attempt
+      description: Notification that a user login attempt has been performed.
+      operationId: login_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/LoginEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /beneficiaries_state_watch:
+    post:
+      tags:
+        - Beneficiaries
+      summary: Beneficiary state
+      description: Notification that a Beneficiary state was changed.
+      operationId: beneficiaries_state_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/BeneficiariesStateEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /linked_account_watch:
+    post:
+      tags:
+        - Linked Account state
+      summary: Linked Account state
+      description: Notification that a Linked Account state was changed.
+      operationId: linked_account_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/LinkedAccountEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /authentication_factors_watch:
+    post:
+      tags:
+        - Authentication Factors
+      summary: Enrolment status
+      description: otification that an enrolment has been accepted or declined.
+      operationId: authentication_factors_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/AuthenticationFactorsEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /stepup_watch:
+    post:
+      tags:
+        - Stepup
+      summary: Step-up status
+      description: notification that an step-up has been accepted or declined.
+      operationId: stepup_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/StepUpEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+  /sweeping_watch:
+    post:
+      tags:
+        - Sweeping
+      summary: Sweeping status
+      description: notification that the status of a transaction has been updated.
+      operationId: sweeping_watch
+      parameters:
+        - $ref: '#/components/parameters/call-ref'
+        - $ref: '#/components/parameters/published-timestamp'
+        - $ref: '#/components/parameters/signature'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/definitions/SweepingEvent'
+        required: true
+      responses:
+        '204':
+          description: Success - No Content
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/DefaultError'
+definitions:
+  DefaultError:
+    type: object
+    properties:
+      message:
+        maxLength: 255
+        type: string
+        description: When present helps to identify and fix the problem.
+    description: A default error model in case of errors other than 400, 409 or 504.
+  BuyerActivatedEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/BuyerActivatedData'
+      type:
+        type: string
+  BuyerActivatedData:
+    type: object
+    required:
+      - actionDoneBy
+      - buyerId
+    "additionalProperties": false
+    properties:
+      actionDoneBy:
+        allOf:
+          - $ref: '#/definitions/ActionDoneBy'
+      buyerId:
+        type: string
+  ActionDoneBy:
+    type: string
+    enum:
+      - ADMIN
+      - EMBEDDER
+      - UNDEFINED
+  BuyerDeactivatedEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/BuyerDeactivatedData'
+      type:
+        type: string
+  BuyerDeactivatedData:
+    type: object
+    required:
+      - actionDoneBy
+      - reasonCode
+    "additionalProperties": false
+    properties:
+      actionDoneBy:
+        allOf:
+          - $ref: '#/definitions/ActionDoneBy'
+      reasonCode:
+        allOf:
+          - $ref: '#/definitions/ReasonCode'
+      buyerId:
+        type: string
+  ReasonCode:
+    type: string
+    enum:
+      - UNDEFINED_REASON
+      - ACCOUNT_REVIEW
+      - ACCOUNT_SECURITY
+      - TEMPORARY
+      - ACCOUNT_CLOSURE
+      - ACCOUNT_ABANDONED
+  KybEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      type:
+        type: string
+        description: Webhooks type.
+      data:
+        allOf:
+          - $ref: '#/definitions/KybEventData'
+          - description: KYB event data.
+  KybEventData:
+    type: object
+    "additionalProperties": false
+    properties:
+      buyerId:
+        type: string
+        description: Id of the buyer.
+      status:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: Effective KYB status of the buyer.
+      details:
+        type: array
+        description: Action which my be required to re-process kyb in case of temporary rejections.
+        items:
+          $ref: '#/definitions/FailureReason'
+      rejectionComment:
+        type: string
+        description: Reason shown to the user in case of temporary rejection.
+      ongoingStatus:
+        allOf:
+          - $ref: '#/definitions/KyiStatus'
+          - description: Ongoing KYB Status of the buyer.
+  FailureReason:
+    type: string
+    enum:
+      - DOCUMENTS_UNSATISFACTORY
+      - SUPPLIED_DATA_AND_DOCUMENTS_MISMATCH
+      - LANGUAGE_IN_DOCUMENTS_UNSUPPORTED
+      - SELFIE_UNSATISFACTORY
+      - SELFIE_AND_DOCUMENTS_MISMATCH
+      - CORPORATE_DETAILS_UNSATISFACTORY
+      - BENEFICIARY_DETAILS_UNSATISFACTORY
+      - REPRESENTATIVE_DETAILS_UNSATISFACTORY
+      - OTHER
+      - UNSUPPORTED_COUNTRY
+      - UNDEFINED_REQUIRED_INTERVENTION
+      - ADMIN_USER_UNMATCHED_TO_DIRECTOR_OR_REPRESENTATIVE
+  KyiStatus:
+    type: string
+    enum:
+      - NOT_STARTED
+      - INITIATED
+      - PENDING_REVIEW
+      - APPROVED
+      - REJECTED
+  LinkedAccountEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/LinkedAccountData'
+      type:
+        type: string
+        description: Webhooks type.
+  LinkedAccountData:
+    type: object
+    required:
+      - id
+      - accountIdentification
+      - currency
+      - institution
+    properties:
+      id:
+        type: string
+      accountIdentification:
+        allOf:
+          - $ref: '#/definitions/AccountDetails'
+      currency:
+        type: string
+      institution:
+        allOf:
+          - $ref: '#/definitions/Institution'
+  AccountDetails:
+    required:
+      - accountNumber
+      - sortCode
+    type: object
+    properties:
+      accountNumber:
+        type: string
+      sortCode:
+        type: string
+  Institution:
+    type: object
+    required:
+      - id
+      - displayName
+      - countries
+    properties:
+      id:
+        type: string
+      displayName:
+        type: string
+      countries:
+        type: array
+      images:
+        type: object
+        allOf:
+          - $ref: '#/definitions/LinkedAccountImages'
+      info:
+        type: object
+        allOf:
+          - $ref: '#/definitions/LinkedAccountInfo'
+  LinkedAccountImages:
+    type: object
+    properties:
+      logo:
+        type: string
+      icon:
+        type: string
+  LinkedAccountInfo:
+    type: object
+    properties:
+      loginUrl:
+        type: string
+      helplinePhoneNumber:
+        type: string
+  PaymentRunEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/PaymentRunData'
+      type:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  PaymentRunData:
+    required:
+      - id
+      - status
+      - payments
+      - createdBy
+      - createdAt
+    type: object
+    properties:
+      id:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/PaymentRunState'
+      payments:
+        allOf:
+          - $ref: '#/definitions/PaymentRunPayments'
+      createdBy:
+        type: string
+      createdAt:
+        type: string
+      paymentRunRef:
+        type: string
+      tag:
+        type: string
+      description:
+        type: string
+      paymentDate:
+        type: string
+  PaymentRunPayments:
+    required:
+      - id
+      - status
+      - paymentAmount
+      - reference
+      - supplier
+    type: array
+    properties:
+      id:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/PaymentsState'
+      externalRef:
+        type: string
+      paymentRef:
+        type: string
+      paymentAmount:
+        allOf:
+          - $ref: '#/definitions/PaymentAmount'
+      reference:
+        type: string
+      supplier:
+        allOf:
+          - $ref: '#/definitions/Supplier'
+  PaymentAmount:
+    required:
+      - currency
+      - amount
+    type: object
+    properties:
+      currency:
+        type: string
+      amount:
+        type: integer
+  Supplier:
+    required:
+      - name
+      - bankAccountDetails
+    type: object
+    properties:
+      name:
+        type: string
+      address:
+        type: string
+      bankAccountDetails:
+        allOf:
+          - $ref: '#/definitions/AccountDetails'
+      bankAddress:
+        type: string
+      bankCountry:
+        type: string
+      bankName:
+        type: string
+  PaymentsState:
+    type: string
+    enum:
+      - CREATED
+      - PENDING_CONFIRMATION
+      - PENDING_CHALLENGE
+      - PENDING_FUNDING
+      - SUBMITTED
+      - COMPLETED
+      - FAILED
+      - CANCELLED
+      - RETURNED
+  PaymentRunState:
+    type: string
+    enum:
+      - CREATED
+      - PENDING_CONFIRMATION
+      - PENDING_CHALLENGE
+      - PENDING_FUNDING
+      - COMPLETED
+      - COMPLETED_WITH_ERRORS
+      - CANCELLED
+      - EXECUTING
+  PaymentRunPaymentEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/PaymentRunPaymentData'
+      type:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  PaymentRunPaymentData:
+    required:
+      - id
+      - status
+      - reference
+      - paymentAmount
+      - supplier
+    type: object
+    properties:
+      id:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/PaymentsState'
+      reference:
+        type: string
+      externalRef:
+        type: string
+      paymentRef:
+        type: string
+      paymentAmount:
+        allOf:
+          - $ref: '#/definitions/PaymentAmount'
+      supplier:
+        allOf:
+          - $ref: '#/definitions/Supplier'
+  LoginEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/LoginEventData'
+      type:
+        type: string
+        description: Login type can be with password or with auth/access token
+  LoginEventData:
+    type: object
+    required:
+      - credential
+      - buyerId
+      - publishedTimestamp
+      - status
+      - type
+    "additionalProperties": false
+    properties:
+      credential:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      buyerId:
+        type: string
+        description: Id of the buyer
+      type:
+        type: string
+        description: Login type can be with password or with auth/access token
+      status:
+        allOf:
+          - $ref: '#/definitions/LoginEventStatus'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  LoginEventStatus:
+    type: string
+    enum:
+      - VERIFIED
+      - DECLINED
+      - EXPIRED
+  TypeId:
+    required:
+      - id
+      - type
+    type: object
+    properties:
+      type:
+        maxLength: 50
+        pattern: ^[a-zA-Z0-9_-]+$
+        type: string
+      id:
+        type: string
+  BeneficiariesStateEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryStateData'
+      type:
+        type: string
+  BeneficiaryStateData:
+    type: object
+    properties:
+      id:
+        type: string
+      additionalInformation:
+        allOf:
+          - $ref: '#/definitions/BeneficiaryAdditionalInformation'
+      event:
+        type: array
+        items:
+          - $ref: '#/definitions/BeneficiariesEventType'
+      eventDetails:
+        type: array
+        items:
+          - $ref: '#/definitions/BeneficiariesEventDetails'
+      rejectionComment:
+        type: string
+  BeneficiariesEventType:
+    type: string
+    enum:
+      - STATUS_UPDATED
+      - BENEFICIARY_TYPE_UPDATED
+      - FIRST_NAME_UPDATED
+      - MIDDLE_NAME_UPDATED
+      - LAST_NAME_UPDATED
+      - EMAIL_UPDATED
+  BeneficiariesEventDetails:
+    type: string
+    enum:
+      - UNDEFINED_REQUIRED_INTERVENTION
+      - DOCUMENTS_UNSATISFACTORY
+      - SUPPLIED_DATA_AND_DOCUMENTS_MISMATCH
+      - LANGUAGE_IN_DOCUMENTS_UNSUPPORTED
+      - SELFIE_UNSATISFACTORY
+      - SELFIE_AND_DOCUMENTS_MISMATCH
+      - CORPORATE_DETAILS_UNSATISFACTORY
+      - BENEFICIARY_DETAILS_UNSATISFACTORY
+      - REPRESENTATIVE_DETAILS_UNSATISFACTORY
+      - OTHER
+      - ADMIN_USER_UNMATCHED_TO_DIRECTOR_OR_REPRESENTATIVE
+      - UNSUPPORTED_COUNTRY
+  BeneficiaryAdditionalInformation:
+    type: object
+    properties:
+      buyerId:
+        type: string
+      buyerName:
+        type: string
+      rootUserEmail:
+        type: string
+      kybStatus:
+        type: string
+      beneficiary:
+        allOf:
+          - $ref: '#/definitions/Beneficiary'
+  Beneficiary:
+    type: object
+    properties:
+      type:
+        type: string
+        items:
+          - $ref: '#/definitions/BeneficiaryTypes'
+      firstName:
+        type: string
+      middleName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      status:
+        type: string
+        items:
+          - $ref: '#/definitions/BeneficiaryState'
+      ongoingKybStatus:
+        type: string
+        items:
+          - $ref: '#/definitions/BeneficiaryKybStatus'
+  BeneficiaryTypes:
+    type: string
+    enum:
+      - UNDEFINED_BENEFICIARY_TYPE
+      - UBO
+      - DIRECTOR
+      - UNKNOWN
+      - SHAREHOLDER
+      - PARTNER
+      - OTHER_DIRECTOR
+  BeneficiaryState:
+    type: string
+    enum:
+      - NOT_STARTED
+      - INITIATED
+      - PENDING_REVIEW
+      - APPROVED
+      - REJECTED
+  BeneficiaryKybStatus:
+    type: string
+    enum:
+      - NOT_STARTED
+      - INITIATED
+      - PENDING_REVIEW
+      - APPROVED
+      - REJECTED
+  AuthenticationFactorsEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/AuthenticationFactorsData'
+      type:
+        type: string
+  AuthenticationFactorsData:
+    type: object
+    required:
+      - credential
+      - type
+      - status
+      - publishedTimestamp
+    "additionalProperties": false
+    properties:
+      credential:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      type:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/EnrolmentStatus'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+  EnrolmentStatus:
+    type: string
+    enum:
+      - ACTIVE
+      - INACTIVE
+  StepUpEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/StepUpData'
+      type:
+        type: string
+  StepUpData:
+    type: object
+    required:
+      - credential
+      - challengeId
+      - type
+      - status
+      - publishedTimestamp
+    "additionalProperties": false
+    properties:
+      credential:
+        allOf:
+          - $ref: '#/definitions/TypeId'
+      buyerId:
+        type: string
+      challengeId:
+        type: string
+      type:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/StepupEventStatus'
+      publishedTimestamp:
+        type: string
+        description: Epoch timestamp using millisecond precision.
+      authToken:
+        type: string
+  StepupEventStatus:
+    type: string
+    enum:
+      - VERIFIED
+      - DECLINED
+      - EXPIRED
+  SweepingEvent:
+    type: object
+    "required": [ "data", "type" ]
+    "additionalProperties": false
+    properties:
+      data:
+        allOf:
+          - $ref: '#/definitions/SweepingData'
+      type:
+        type: string
+  SweepingData:
+    type: object
+    required:
+      - buyerId
+      - sweepingId
+      - transactionDate
+      - transactionAmount
+      - status
+      - destination
+    properties:
+      buyerId:
+        type: string
+      sweepingId:
+        type: string
+      reference:
+        type: string
+      transactionDate:
+        type: string
+      status:
+        allOf:
+          - $ref: '#/definitions/SweepingStatus'
+      transactionAmount:
+        allOf:
+          - $ref: '#/definitions/PaymentAmount'
+      destination:
+        type: object
+        items:
+          - $ref: '#/definitions/SweepingDestination'
+  SweepingStatus:
+    type: string
+    enum:
+      - SUBMITTED
+      - REJECTED
+      - APPROVED
+      - FAILED
+      - COMPLETED
+      - RETURNED
+  SweepingDestination:
+    type: object
+    required:
+      - linkedAccountId
+      - bankAccountDetails
+    "additionalProperties": false
+    properties:
+      bankAccountDetails:
+        allOf:
+          - $ref: '#/definitions/AccountDetails'
+      linkedAccountId:
+        type: string
+parameters:
+  call-ref:
+    name: call-ref
+    in: header
+    description: A call reference generated by the caller and unique to the caller to provide correlation between the caller and system with a maximum length of 255
+    required: false
+    style: simple
+    explode: false
+    schema:
+      type: string
+  published-timestamp:
+    name: published-timestamp
+    in: header
+    description: The timestamp when this event was published
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: integer
+      format: int32
+  signature:
+    name: signature
+    in: header
+    description: The signature to verify the authenticity of this request.  The base64 hash (HmacSHA256) of the published timestamp using your API key.
+    required: true
+    style: simple
+    explode: false
+    schema:
+      type: string

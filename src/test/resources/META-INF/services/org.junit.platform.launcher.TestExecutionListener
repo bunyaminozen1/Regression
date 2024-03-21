@@ -1,0 +1,4 @@
+opc.junit.multi.BaseSetupExtension
+opc.junit.admin.BaseSetupExtension
+opc.junit.innovator.BaseSetupExtension
+opc.junit.backoffice.BaseSetupExtension

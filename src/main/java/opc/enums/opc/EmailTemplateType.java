@@ -1,0 +1,16 @@
+package opc.enums.opc;
+
+public enum EmailTemplateType {
+
+    FORGOT_PASSWORD_CONSUMER,
+    FORGOT_PASSWORD_CORPORATE,
+    DIRECTORS_KYC,
+    INVITE_CONSUMER,
+    INVITE_CORPORATE,
+    PASS_EXPIRY_NOTIFICATION_CONSUMER,
+    PASS_EXPIRY_NOTIFICATION_CORPORATE,
+    VERIFY_EMAIL,
+
+    // For testing purposes
+    UNKNOWN
+}

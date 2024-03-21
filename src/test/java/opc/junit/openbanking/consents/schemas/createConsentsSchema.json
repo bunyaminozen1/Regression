@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "createdTimestamp": {
+      "type": "integer"
+    },
+    "expiry": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "integer"
+    },
+    "state": {
+      "type": "string"
+    },
+    "tppId": {
+      "type": "string"
+    },
+    "tppName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "createdTimestamp",
+    "expiry",
+    "id",
+    "lastUpdated",
+    "state",
+    "tppId",
+    "tppName"
+  ]
+}

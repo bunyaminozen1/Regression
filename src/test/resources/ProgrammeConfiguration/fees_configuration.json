@@ -1,0 +1,216 @@
+[
+  {
+    "programmeName": "ApplicationOne",
+    "programmeCode": "ApplicationOne",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": false
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": true,
+    "webhookDisabled": true,
+    "authyEnabled": true,
+    "biometricEnabled": true,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea"
+        }
+      ]
+    },
+    "consumerManagedAccountProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea"
+        }
+      ]
+    },
+    "authenticationType": "PASSWORD",
+    "paymentModel": "DEFAULT_QA",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea_nitecrest_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_nitecrest_debit"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_debit"
+        }
+      ]
+    },
+    "consumerManagedCardProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea_nitecrest_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_nitecrest_debit"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_debit"
+        }
+      ]
+    },
+    "accountInformationFactors": {
+      "primaryFactors": [
+        {
+          "factor": "PASSWORD"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "paymentInitiationFactors": {
+      "primaryFactors": [
+        {
+          "factor": "SMS"
+        },
+        {
+          "factor": "AUTHY"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "beneficiaryManagementFactors": {
+      "primaryFactors": [
+        {
+          "factor": "SMS"
+        },
+        {
+          "factor": "AUTHY"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "jurisdiction": "EEA"
+  },
+  {
+    "programmeName": "ApplicationTwo",
+    "programmeCode": "ApplicationTwo",
+    "scaConfig": {
+      "enableLowValueExemption": false,
+      "enableScaSends": false
+    },
+    "securityModelConfig": {
+      "CVV": true,
+      "PASSWORD": false,
+      "PIN": true,
+      "CARD_NUMBER": true
+    },
+    "state": "ACTIVE",
+    "supportedFeeGroups": [
+      "DEFAULT"
+    ],
+    "authForwardingEnabled": false,
+    "webhookDisabled": true,
+    "authyEnabled": true,
+    "biometricEnabled": false,
+    "scaMaEnabled": false,
+    "scaMcEnabled": false,
+    "txmEnabled": false,
+    "scaEnrolEnabled": false,
+    "trustBiometrics": false,
+    "corporateManagedAccountProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea"
+        }
+      ]
+    },
+    "consumerManagedAccountProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea"
+        }
+      ]
+    },
+    "authenticationType": "PASSWORD",
+    "paymentModel": "DEFAULT_QA",
+    "zeroBalanceManagedAccountProfiles": null,
+    "corporateManagedCardProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea_nitecrest_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_nitecrest_debit"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_debit"
+        }
+      ]
+    },
+    "consumerManagedCardProfiles": {
+      "profiles": [
+        {
+          "profile": "paynetics_eea_nitecrest_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_nitecrest_debit"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_prepaid"
+        },
+        {
+          "profile": "paynetics_eea_digiseq_debit"
+        }
+      ]
+    },
+    "accountInformationFactors": {
+      "primaryFactors": [
+        {
+          "factor": "PASSWORD"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "paymentInitiationFactors": {
+      "primaryFactors": [
+        {
+          "factor": "SMS"
+        },
+        {
+          "factor": "AUTHY"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "beneficiaryManagementFactors": {
+      "primaryFactors": [
+        {
+          "factor": "SMS"
+        },
+        {
+          "factor": "AUTHY"
+        }
+      ],
+      "secondaryFactors": null
+    },
+    "jurisdiction": "EEA"
+  }
+]

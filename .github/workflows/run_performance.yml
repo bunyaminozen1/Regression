@@ -1,0 +1,47 @@
+name: Run Performance
+
+on:
+  workflow_dispatch:
+
+jobs:
+  login:
+    if: success() || failure()
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.authentication.LoginLoadTests
+  create_corporate:
+    if: success() || failure()
+    needs: login
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.corporates.CreateCorporateLoadTest
+  create_consumer:
+    if: success() || failure()
+    needs: create_corporate
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.consumers.CreateConsumerLoadTest
+  create_managed_account:
+    if: success() || failure()
+    needs: create_consumer
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.managedaccounts.CreateManagedAccountLoadTests
+  create_managed_card:
+    if: success() || failure()
+    needs: create_managed_account
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.managedcards.CreateManagedCardLoadTests
+  create_send:
+    if: success() || failure()
+    needs: create_managed_card
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.sends.CreateSendsLoadTests
+  create_transfer:
+    if: success() || failure()
+    needs: create_send
+    uses: ./.github/workflows/performance_template.yml
+    with:
+      simulation_class: opc.performance.multi.transfers.CreateTransfersLoadTests
